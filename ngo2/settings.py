@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'django.contrib.gis',
     'donator.apps.DonatorConfig',
     'ngo.apps.NgoConfig',
     'accounts.apps.AccountsConfig',
