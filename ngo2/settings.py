@@ -57,7 +57,7 @@ ROOT_URLCONF = 'ngo2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['ngo2/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
