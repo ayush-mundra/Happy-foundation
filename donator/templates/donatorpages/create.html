@@ -12,6 +12,9 @@
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" >
 {% csrf_token %}
+Name
+<br />
+<input type="text" name="name" />
 title:
 <br />
 <input type="text" name="title" />
@@ -19,16 +22,20 @@ title:
 Body:
 <br />
 <input type="textbox" name="body" />
+Phone
 <br />
-URL
+<input type="text" name="phone" />
+Address
 <br />
-<input type="text" name="url" />
+<input type="text" name="address" />
 <br />
+Item Image:
 <br />
-<input type="file" name="icon" />
+<input type="file" name="itemimage" />
 <br />
+Governmet Id
 <br />
-<input type="file" name="image" />
+<input type="file" name="id" />
 <br />
 <br />
 <br />

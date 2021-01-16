@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 class Product(models.Model):
    title = models.CharField(max_length=200)
    Name = models.CharField(max_length=200,default='SOME STRING')
+   Phone = models.CharField(max_length=20,default='SOME STRING')
+   address = models.CharField(max_length=200,default='SOME STRING')
    pub_date = models.DateTimeField() 
    body = models.TextField()
-#    url = models.TextField()
    itemImage = models.ImageField(upload_to='images/')
    Id = models.ImageField(upload_to='images/',default='SOME STRING')
-#    votes_total = models.IntegerField(default=1)
    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
 def  __str__(self):

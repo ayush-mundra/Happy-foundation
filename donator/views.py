@@ -9,21 +9,19 @@ def home(request):
 @login_required
 def create(request):
     if request.method == 'POST':
-        if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
+        if request.POST['title'] and request.POST['name'] and request.POST['phone'] and request.POST['address'] and request.FILES['itemimage'] and request.FILES['id']:
             product = Product()
             product.title = request.POST['title']
+            product.Name = request.POST['name']
             product.body = request.POST['body']
-            if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
-                    product.url = request.POST['url']
-            else:
-                product.url = 'http://' + request.POST['url']
-                product.icon = request.FILES['icon']
-                product.image = request.FILES['image']
-                product.pub_date = timezone.datetime.now()
-                product.votes_total = 1
-                product.hunter = request.user
-                product.save()
-                return redirect('/donator/'+ str(product.id))
+            product.Phone = request.POST['phone']
+            product.address = request.POST['address']
+            product.Id = request.FILES['id']
+            product.itemImage = request.FILES['itemimage']
+            product.pub_date = timezone.datetime.now()
+            product.owner = request.user
+            product.save()
+            return redirect('/donator/'+ str(product.id))
 
 
         return render(request, 'donatorpages/create.html',{'error':'All fields are required'})
@@ -38,7 +36,6 @@ def details(request,product_id):
 def upvote(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
-        product.votes_total += 1
         product.save()
         return redirect('/products/' + str(product.id))
    
