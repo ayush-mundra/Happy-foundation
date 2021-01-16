@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+<h1>Create</h1>
+<!-- ectype use to send data to database using form -->
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" >
+{% csrf_token %}
+title:
+<br />
+<input type="text" name="title" />
+<br />
+Body:
+<br />
+<input type="textbox" name="body" />
+<br />
+URL
+<br />
+<input type="text" name="url" />
+<br />
+<br />
+<input type="file" name="icon" />
+<br />
+<br />
+<input type="file" name="image" />
+<br />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="save product" />
+</form>
+
+{% endblock %}
