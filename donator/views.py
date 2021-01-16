@@ -23,7 +23,7 @@ def create(request):
                 product.votes_total = 1
                 product.hunter = request.user
                 product.save()
-                return redirect('/products/'+ str(product.id))
+                return redirect('/donator/'+ str(product.id))
 
 
         return render(request, 'donatorpages/create.html',{'error':'All fields are required'})
@@ -32,7 +32,7 @@ def create(request):
 def details(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
 
-    return render(request,'products/detail.html',{'product':product})
+    return render(request,'donatorpages/detail.html',{'product':product})
     
 @login_required(login_url="/accounts/signup")
 def upvote(request, product_id):
