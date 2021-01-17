@@ -25,7 +25,7 @@ SECRET_KEY = '#k1$&0vwh5%q_-^3z=n6@=$e&@c(i$&y-6u2(#nfdew&*cl8@u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['159.89.175.152']
+ALLOWED_HOSTS = ['159.89.175.152','127.0.0.1']
 
 
 # Application definition
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['159.89.175.152']
 INSTALLED_APPS = [
     # 'django.contrib.gis',
     'donator.apps.DonatorConfig',
+    'razorpay.apps.RazorpayConfig',
     'ngo.apps.NgoConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
@@ -81,8 +82,8 @@ DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ngo2',
-        'USER':'jagrit',
-        'PASSWORD':'jagrit12345',
+        'USER':'postgres',
+        'PASSWORD':'1234',
         'HOST':'localhost',
         'PORT':'5432',
     }
