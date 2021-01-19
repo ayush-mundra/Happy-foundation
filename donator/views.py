@@ -31,6 +31,10 @@ def details(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
 
     return render(request,'donatorpages/detail.html',{'product':product})
+def info(request,product_id):
+    product = get_object_or_404(Product,pk=product_id)
+
+    return render(request,'donatorpages/info.html',{'product':product})
     
 @login_required(login_url="/accounts/signup")
 def upvote(request, product_id):
