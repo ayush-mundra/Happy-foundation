@@ -12,34 +12,64 @@
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" >
 {% csrf_token %}
-Name
+ {% comment %} <i class="material-icons prefix">account_circle</i> {% endcomment %}
+  <label for="name">Full Name</label>
+ 
+ <input placeholder="Full Name" name="name" id="name" type="text" class="validate">
+
 <br />
-<input type="text" name="name" />
-title:
+<div class="input-field col s6">
+ <input id="title"  name="title" type="text" class="validate">
+          <label for="title">title</label>
+</div>
 <br />
-<input type="text" name="title" />
+<div class="input-field col s6">
+ <input id="body"  name="body" type="text" class="validate">
+          <label for="body">Body</label>
+</div>
+<div class="input-field col s6">
+ <input id="body"  name="phone" type="text" class="validate">
+          <label for="phone">phone</label>
+</div>
+<div class="input-field col s6">
+ <input id="body"  name="address" type="text" class="validate">
+          <label for="address">Address</label>
+</div>
+
+
+{% comment %} Item Image: {% endcomment %}
 <br />
-Body:
-<br />
-<input type="textbox" name="body" />
-Phone
-<br />
-<input type="text" name="phone" />
-Address
-<br />
-<input type="text" name="address" />
-<br />
-Item Image:
-<br />
-<input type="file" name="itemimage" />
-<br />
+<div class="file-field input-field ">
+      <div class="btn light-blue accent-3" >
+        <span>Product Image </span>
+        <input type="file" name="itemimage" >
+      </div>
+      <div class="file-path-wrapper" >
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+<div class="file-field input-field">
+      <div class="btn red lighten-1" >
+        <span>Governmet Id </span>
+        <input type="file" name="id" >
+      </div>
+      <div class="file-path-wrapper" >
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+{% comment %} <div class="btn">
+<span>Product Image </span>
+<input class="file" name="itemimage" />
+</div> {% endcomment %}
+{% comment %} <br />
 Governmet Id
 <br />
 <input type="file" name="id" />
+<br /> {% endcomment %}
 <br />
 <br />
-<br />
-<input class="btn btn-primary" type="submit" value="save product" />
+<input class="btn btn-primary blue" type="submit" value="save product" />
 </form>
 
 {% endblock %}

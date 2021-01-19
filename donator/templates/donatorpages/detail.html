@@ -1,8 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ product.itemImage.url }}">
+          <span class="card-title">{{ product.title }}</span>
+        </div>
+        <div class="card-content">
+          <p>
+          <br/>
+          Donated by {{ product.owner.username }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">{{ product.body }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="row">
+{% comment %} <div class="row">
   <div class="col-2">
     <img src="{{ product.itemImage.url }}" class="img-fluid" />
   </div>
@@ -19,7 +37,7 @@
 
 <div class="row pt-2">
   <div class="col-4">
-    <h4><span class="oi oi-magnifying-glass"></span> Hunted by {{ product.owner.username }}</h4>
+    <h4><span class="oi oi-magnifying-glass"></span> Donated by {{ product.owner.username }}</h4>
   </div>
   <div class="col-4 text-right">
     <h4><span class="oi oi-clock"></span> {{ product.pub_date_pretty }}</h4>
@@ -30,7 +48,7 @@
   <div class="col-8">
     <p>{{ product.body }}</p>
   </div>
-</div>
+</div> {% endcomment %}
 
 <form id="upvote" method="POST" action="{% url 'upvote' product.id %}">
   {% csrf_token%}
