@@ -1,5 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
 {% for product in products.all %}
-<div class="row">
-<img src = "{{ product.itemImage.url}}" class="img-fluid"
-</div>
+
+
+<div class="card" style="width: 500px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ product.itemImage.url}}" alt="jeff">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.Name}}</h5>
+                        <p class="card-text">{{ product.Address}}</p>
+                        <p class="card-text">{{ product.Phone}}</p>
+                        <a href="#" class="btn btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endfor %}
+
+{% endblock %}
