@@ -10,6 +10,7 @@ urlpatterns = [
    path('create',views.create,name='create'),
 #    path('',views.create,name='home'),
     path('home',views.home, name='home'),
+    path('Donatorhome',views.Donatorhome, name='Donatorhome'),
    path('<int:product_id>',views.details,name='details'),
     path('<int:product_id>/upvote', views.upvote, name='upvote'),
      path('<int:product_id>/info',views.info,name='info'),

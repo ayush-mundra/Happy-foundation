@@ -24,7 +24,7 @@ def login(request):
         user=  auth.authenticate(username=request.POST['username'],password=request.POST['password1'])
         if user is not None:
             auth.login(request,user)
-            return redirect('home')
+            return redirect('Donatorhome')
         else:
             return render(request,'accounts/login.html',{'error':'username or password is incorrect.'})
     else:

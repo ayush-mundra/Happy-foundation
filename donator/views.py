@@ -5,6 +5,8 @@ from .models import Product
 # Create your views here.
 def home(request):
     return render(request,'donatorpages/home.html')
+def Donatorhome(request):
+    return render(request,'donatorpages/Donatorhome.html')
 
 @login_required
 def create(request):
