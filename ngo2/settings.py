@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['159.89.175.152','127.0.0.1']
 
 INSTALLED_APPS = [
     # 'django.contrib.gis',
+    'measurements.apps.MeasurementsConfig',
     'donator.apps.DonatorConfig',
     'razorpay.apps.RazorpayConfig',
     'ngo.apps.NgoConfig',
