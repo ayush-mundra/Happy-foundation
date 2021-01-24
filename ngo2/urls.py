@@ -10,7 +10,7 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('accounts/', include('accounts.urls')),
     path('donator/', include('donator.urls')),
-    path('ngo/', include('ngo.urls')),
     path('razor/', include('razorpay.urls')),
+    path('ngo/', include('ngo.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
