@@ -10,7 +10,7 @@ def signup(request):
                 user = User.objects.get(username=request.POST['username'])
                 return render(request, 'accounts/signup.html', {'error':'Username has already been taken'})
             except User.DoesNotExist:
-                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
+                user = User.objects.create_user(username = request.POST['username'], password=request.POST['password1'],name = request.POST.get('Fname'),userimage = request.FILES.get('userimg'))
                 auth.login(request,user)
                 return redirect('home')
         else:

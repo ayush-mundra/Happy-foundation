@@ -17,8 +17,23 @@
     {% csrf_token %}
   <img class="mb-4" src="https://media.tenor.com/images/175e5a779052a1e75881b0bed7c985c5/tenor.gif" alt="" width="200" height="200">
   <h1 class="h3 mb-3 font-weight-normal text-left">Please sign Up</h1>
-  <label for="inputEmail" class="sr-only">Username</label>
+  <label class="sr-only">Full Name</label>
+  <input type="text" name="Fname" class="form-control" placeholder="Username" required autofocus>
+  <label class="sr-only">Username</label>
   <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+  {% comment %} <label class="sr-only">Phone Number</label>
+  <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> {% endcomment %}
+
+  <div class="file-field input-field ">
+      <div class="btn light-blue accent-3" >
+        <span>Your Image </span>
+        <input type="file" name="userimg" >
+      </div>
+      <div class="file-path-wrapper" >
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="password1"  class="form-control" placeholder="Password" required>
   <label for="inputPassword"  class="sr-only">Confirm Password</label>
