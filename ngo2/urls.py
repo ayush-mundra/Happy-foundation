@@ -12,5 +12,6 @@ urlpatterns = [
     path('donator/', include('donator.urls')),
     path('razor/', include('razorpay.urls')),
     path('ngo/', include('ngo.urls')),
+    path('profile/', include('Userprofile.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

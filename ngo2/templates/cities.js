@@ -1,5 +1,4 @@
- <script>
- var state_arr = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
+var state_arr = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
 
 var s_a = new Array();
 s_a[0]="";
@@ -60,54 +59,3 @@ function print_city(city_id, city_index){
 		option_str.options[option_str.length] = new Option(city_arr[i],city_arr[i]);
 	}
 }
-
- </script>
-{% extends 'base.html' %}
-
-
-{%block content %}
-
-{% if error %}
-    {{ error }}
-    <br />
-
-{% endif %}
-
-
-   <body class="text-center">
-   
-    <form method="POST" action="{% url 'createprofile' %}" class="form-signin">
-    {% csrf_token %}
-  <img class="mb-4" src="https://media.tenor.com/images/10ba21776caa5c73e88b97cb48ea216a/tenor.gif" alt="" width="200" height="200">
-  <h1 class="h3 mb-3 font-weight-normal text-left">Create Your Profile</h1>
-  <label class="sr-only">Full Name</label>
-  <input type="text" name="Fname" class="form-control" placeholder="Username" required autofocus>
-  <label class="sr-only">Username</label>
-  <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
- <label class="sr-only">Phone Number</label>
-  <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
- <label for="country">State</label><span style="color: red !important; display: inline; float: none;">*</span>  
- <div class="input-field col s12">   
-<select  onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
-<select id ="state" class="form-control" required></select>
-<script language="javascript">print_state("sts");</script>    
-  
-  </div>
-  <div class="file-field input-field ">
-      <div class="btn light-blue accent-3" >
-        <span>Your Image </span>
-        <input type="file" name="userimg" >
-      </div>
-      <div class="file-path-wrapper" >
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-
-  <input  class="btn btn-primary" type="submit" value="Create Profile"></input>
- 
-</form>
-</div>
- </body>
-{% endblock %}
-
- 
