@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ Profile.address }}">
+          <span class="card-title">{{ Profile.Username }}</span>
+        </div>
+        <div class="card-content">
+          <p>
+         
+          Donated by {{ Profile.Name }}  <br/> {{ Profile.address }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">For More details </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% comment %} <div class="row">
+  <div class="col-2">
+    <img src="{{ product.itemImage.url }}" class="img-fluid" />
+  </div>
+  <div class="col-10">
+    <a href="{{ product.url }}"><h1>{{ product.title }}</h1></a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <img src="{{ product.id.url }}" class="img-fluid" />
+  </div>
+</div>
+
+<div class="row pt-2">
+  <div class="col-4">
+    <h4><span class="oi oi-magnifying-glass"></span> Donated by {{ product.owner.username }}</h4>
+  </div>
+  <div class="col-4 text-right">
+    <h4><span class="oi oi-clock"></span> {{ product.pub_date_pretty }}</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <p>{{ product.body }}</p>
+  </div>
+</div> {% endcomment %}
+
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+
+{% endblock %}
