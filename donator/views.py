@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Product
 # Create your views here.
 def home(request):
     return render(request,'donatorpages/home.html')
+def profile(request):
+    return render(request,'donatorpages/aboutUser.html',{'User':User})
 def Donatorhome(request):
     return render(request,'donatorpages/Donatorhome.html')
 
