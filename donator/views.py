@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Product
+import accounts
 # Create your views here.
 def home(request):
     return render(request,'donatorpages/home.html')
@@ -48,3 +49,14 @@ def upvote(request, product_id):
         product.save()
         return redirect('/products/' + str(product.id))
    
+
+
+
+@login_required(login_url="/accounts/signup")
+def delete(request):
+    if request.method == 'POST':
+        # product = get_object_or_404(Product, pk=product_id)
+        #User.request.delete(product_id)
+        #product.save()
+        return render(request,'donatorpages/delete.html')
+

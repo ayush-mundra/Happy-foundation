@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib  import auth
+from django.contrib.auth.decorators import login_required
 
 def signup(request):
     if request.method == 'POST':
@@ -37,3 +38,14 @@ def logout(request):
         auth.logout(request)
     
         return redirect('home')
+
+
+
+#@login_required(login_url="/accounts/signup")
+#def delete(request):
+    #if request.method == 'POST':
+      #  User.objects.all()[].delete()
+       # return render(request,'accounts/delete.html')
+     
+# Main bolta hu phele tu request wala kaam karr le ye chota hai parr time consuming hai
+# this is working only i have to search the delete query
