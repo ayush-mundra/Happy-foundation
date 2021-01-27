@@ -14,6 +14,7 @@ def createprofile(request):
             profile.Username = request.POST['username']
             profile.Phone = request.POST['Phone']
             profile.address = request.POST['stt']
+            product.Userimg = request.FILES['userimg']
             # profile.Userimg = request.FILES.get('userimg',False)  and request.FILES.get('userimg',False)
             profile.save()
             return redirect('/profile/edit')
