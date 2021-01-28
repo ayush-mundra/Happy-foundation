@@ -8,68 +8,19 @@
 <br />
 {% endif %}
 
-<h1>put request!</h1>
-<!-- ectype use to send data to database using form -->
-<form method="POST" action="{% url 'need_request' %}" enctype="multipart/form-data" >
+<h1>push request!</h1>
+
+<form method="POST" action="{% url 'need_request' %}" enctype="multipart/form-data">
 {% csrf_token %}
- {% comment %} <i class="material-icons prefix">account_circle</i> {% endcomment %}
-  <label for="name">Full Name</label>
- 
- <input placeholder="Full Name" name="name" id="name" type="text" class="validate">
-
+Title:
 <br />
-<div class="input-field col s6">
- <input id="title"  name="title" type="text" class="validate">
-          <label for="title">title</label>
-</div>
+<input type="text" name="title" />
 <br />
-<div class="input-field col s6">
- <input id="body"  name="body" type="text" class="validate">
-          <label for="body">Body</label>
-</div>
-<div class="input-field col s6">
- <input id="body"  name="phone" type="text" class="validate">
-          <label for="phone">phone</label>
-</div>
-<div class="input-field col s6">
- <input id="body"  name="address" type="text" class="validate">
-          <label for="address">Address</label>
-</div>
-
-
-<!-- {% comment %} Item Image: {% endcomment %} -->
+Body:
 <br />
-<!-- <div class="file-field input-field ">
-      <div class="btn light-blue accent-3" >
-        <span>Product Image </span>
-        <input type="file" name="itemimage" >
-      </div>
-      <div class="file-path-wrapper" >
-        <input class="file-path validate" type="text">
-      </div>
-    </div> -->
-<div class="file-field input-field">
-      <div class="btn red lighten-1" >
-        <span>Governmet Id </span>
-        <input type="file" name="id" >
-      </div>
-      <div class="file-path-wrapper" >
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-
-<!-- {% comment %} <div class="btn">
-<span>Product Image </span>
-<input class="file" name="itemimage" />
-</div> {% endcomment %}
-{% comment %} <br /> -->
-Governmet Id
+<input type="textbox" name="body" />
 <br />
-<input type="file" name="id" />
-<br /> {% endcomment %}
-<br />
-<br />
-<input class="btn btn-primary blue" type="submit" value="save product" />
+<input class="btn btn-primary" type="submit" value="Add Product" />
 </form>
 
 {% endblock %}

@@ -13,5 +13,6 @@ urlpatterns = [
     path('razor/', include('razorpay.urls')),
     path('ngo/', include('ngo.urls')),
     path('profile/', include('Userprofile.urls')),
+    path('request/', include('request.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
