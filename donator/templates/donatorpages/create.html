@@ -10,7 +10,7 @@
 
 <h1>Create</h1>
 <!-- ectype use to send data to database using form -->
-<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" >
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
 {% csrf_token %}
  {% comment %} <i class="material-icons prefix">account_circle</i> {% endcomment %}
   <label for="name">Full Name</label>

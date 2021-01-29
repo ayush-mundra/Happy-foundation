@@ -65,7 +65,7 @@ function print_city(city_id, city_index){
 {% extends 'base.html' %}
 
 
-{%block content %}
+{% block content %}
 
 {% if error %}
     {{ error }}
@@ -76,11 +76,12 @@ function print_city(city_id, city_index){
 
    <body class="text-center">
    
-    <form method="POST" action="{% url 'createprofile' %}" class="form-signin">
+    <form method="POST" action="{% url 'createprofile' %}" enctype="multipart/form-data" >#yaha maine change kiya
     {% csrf_token %}
   <img class="mb-4" src="https://media.tenor.com/images/10ba21776caa5c73e88b97cb48ea216a/tenor.gif" alt="" width="200" height="200">
   <h1 class="h3 mb-3 font-weight-normal text-left">Create Your Profile</h1>
   <label class="sr-only">Full Name</label>
+  {% comment %} hua kyua challu? {% endcomment %}
   <input type="text" name="Fname" class="form-control" placeholder="Complete Name" required autofocus>
   <label class="sr-only">Username</label>
   <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
