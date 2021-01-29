@@ -28,14 +28,13 @@ def create(request):
             product.save()
             return redirect('/donator/'+ str(product.id))
 
-
         return render(request, 'donatorpages/create.html',{'error':'All fields are required'})
     else:
         return render(request, 'donatorpages/create.html')
 def details(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
-
     return render(request,'donatorpages/detail.html',{'product':product})
+    
 def info(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
 

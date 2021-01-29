@@ -12,7 +12,7 @@ urlpatterns = [
     path('home',views.home, name='home'),
     path('profile',views.profile, name='profile'),
     path('Donatorhome',views.Donatorhome, name='Donatorhome'),
-   path('<int:product_id>',views.details,name='details'),
+
     path('<int:product_id>/upvote', views.upvote, name='upvote'),
      path('<int:product_id>/info',views.info,name='info'),
  
