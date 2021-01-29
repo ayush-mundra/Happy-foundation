@@ -8,7 +8,7 @@ class Profile(models.Model):
    Name = models.CharField(max_length=200,default='SOME STRING')
    Username = models.CharField(max_length=200,default='SOME STRING')
    Phone = models.CharField(max_length=20,default='SOME STRING')
-   address = models.CharField(max_length=200,default='SOME STRING')
-   Userimg = models.ImageField(upload_to='User/',default='SOME STRING')
+   state = models.CharField(max_length=200,default='SOME STRING')
+   city = models.CharField(max_length=200,default='SOME STRING')
    # country = models.CountryField()
 

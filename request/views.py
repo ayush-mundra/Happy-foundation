@@ -3,26 +3,27 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .models import needrequest
+from .models import Needrequest
+from Userprofile.models import Profile
+
 
 @login_required
-def need_request(request):
+def needrequest(request):
     if request.method == 'POST':
-        if request.POST['title'] and request.POST['name'] and request.POST['phone'] and request.POST['address'] and request.FILES['id']:
-            product = Product()
-            product.title = request.POST['title']
-            product.Name = request.POST['name']
-            product.body = request.POST['body']
-            product.Phone = request.POST['phone']
-            product.address = request.POST['address']
-            product.Id = request.FILES['id']
-            product.itemImage = request.FILES['itemimage']
-            product.pub_date = timezone.datetime.now()
-            product.owner = request.user
-            product.save()
-            return redirect('/donator/'+ str(product.id))
-
-
-        return render(request, 'donatorpages/need_request.html',{'error':'All fields are required'})
+        if  request.POST.get('body', False):
+            _request =  Needrequest()
+            _request.title = request.POST['title']
+            _request.body = request.POST.get('body', False)
+            _request.pub_date = timezone.datetime.now()
+            _request.needy = request.user
+            _request.save()
+            return redirect('home')
+        return render(request, 'need_request.html',{'error':'All fields are required'})
     else:
-        return render(request, 'donatorpages/need_request.html')
+        return render(request, 'need_request.html')
+
+# bro i am going off for 1 hr talk to you after that my phone would be close ok but don't off vs code hkya bol rha h
+def reqdetails(request,request_id,user_id):
+     _request = get_object_or_404(Needrequest,pk=request_id)
+     profile = get_object_or_404(Profile,pk=user_id)
+     return render(request,'req_details.html',{'request':_request,'user':profile})
