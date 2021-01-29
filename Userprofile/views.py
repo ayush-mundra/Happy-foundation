@@ -8,13 +8,13 @@ from django.contrib.auth.models import User
 # Create your views here.
 def createprofile(request):
     if request.method == 'POST':
-        if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['stt'] :
+        if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
             profile = Profile()
             profile.Name = request.POST['Fname']
             profile.Username = request.POST['username']
             profile.Phone = request.POST['Phone']
-            profile.address = request.POST['stt']
-            # profile.Userimg = request.FILES.get('userimg',False)  and request.FILES.get('userimg',False)
+            profile.state = request.POST['state']
+            profile.city = request.POST['city']
             profile.save()
             return redirect('/profile/edit')
 

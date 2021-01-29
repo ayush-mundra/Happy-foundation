@@ -23,7 +23,7 @@ def needrequest(request):
         return render(request, 'need_request.html')
 
 # bro i am going off for 1 hr talk to you after that my phone would be close ok but don't off vs code hkya bol rha h
-def reqdetails(request,request_id):
-    user = get_object_or_404( Profile , pk=User.id)
-    _request = get_object_or_404(Needrequest,pk=request_id)
-    return render(request,'req_details.html',{'request':_request,"user": user})
+def reqdetails(request,request_id,user_id):
+     _request = get_object_or_404(Needrequest,pk=request_id)
+     profile = get_object_or_404(Profile,pk=user_id)
+     return render(request,'req_details.html',{'request':_request,'user':profile})

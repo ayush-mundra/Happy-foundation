@@ -6,21 +6,18 @@
   {{request.title}}
 </div>
 
-<div class="row">
-  <div class="col-8">
-    <img src="{{ user.Userimg.url }}" class="img-fluid" />
-  </div>
-</div>
 
-<div class="row pt-2">
-  <div class="col-4">
-    <h4><span class="oi oi-magnifying-glass"></span> posted  by {{ user.Username }}</h4>
-  </div>
-  <div class="col-4 text-right">
-    <h4><span class="oi oi-clock"></span> {{ request.pub_date }}</h4>
-  </div>
-</div>
+    <h4> posted  by {{  user.Name }}</h4>
 
+
+    <h4> PHONE {{  user.Phone }}</h4>
+
+  
+    <h4>{{ request.pub_date }}</h4>
+
+    <h4>{{ user.stt }}</h4>
+
+    
 <div class="row">
   <div class="col-8">
     <p>{{ request.body }}</p>

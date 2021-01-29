@@ -88,12 +88,13 @@ function print_city(city_id, city_index){
   <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
  <label for="State">State</label><span style="color: red !important; display: inline; float: none;">*</span>  
  <div class="input-field col s12">   
-<select  onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
-<select id ="state" class="form-control" required></select>
-<script language="javascript">print_state("sts");</script>    
+<select  onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" class="form-control" required></select>
+<select id ="state" class="form-control" name ="city"required></select>
+<script language="javascript">print_state("sts");</script>   
+ 
   
   </div>
-  <div class="file-field input-field ">
+  {% comment %} <div class="file-field input-field ">
       <div class="btn light-blue accent-3" >
         <span>Your Image </span>
         <input type="file" name="userimg" >
@@ -101,9 +102,9 @@ function print_city(city_id, city_index){
       <div class="file-path-wrapper" >
         <input class="file-path validate" type="text">
       </div>
-    </div>
+    </div> {% endcomment %} 
 
-  <input  class="btn btn-primary" type="submit" value="Create Profile"></input>
+ <input  class="btn btn-primary" type="submit" value="Create Profile"></input> 
  
 </form>
 </div>
