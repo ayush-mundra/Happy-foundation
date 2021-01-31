@@ -4,27 +4,33 @@ from django.urls import path, include
 from ngo import views
 from django.conf import settings
 from django.conf.urls.static import static
-from donator.models import Product
+from ngo.models import Products
 from django.shortcuts import render, redirect, get_object_or_404
-from django.utils import timezone
+from django.contrib.auth.models import User
+from Userprofile.models import Profile
 
 
 def homes(request):
-    products = Product.objects
+    products = Products.objects
+    #curr_user= request.user
+    #obj = get_object_or_404(Profile, pk=curr_user.id
     return render(request,'ngopages/home.html',{'products':products})
+
 
 def help(request):
     if request.method == 'POST':
-        if request.POST['title'] and request.POST['name'] and request.POST['phone'] and request.POST['address'] and request.FILES['insideImage'] and request.FILES['Id']:
-            product = Product()
-            product.title = request.POST['title']
-            product.Name = request.POST['name']
-            product.body = request.POST['body']
-            product.Phone = request.POST['phone']
-            product.address = request.POST['address']
-            product.Id = request.FILES['id']
-            product.itemImage = request.FILES['insideImage']
-            product.pub_date = timezone.datetime.now()
-            product.owner = request.user
+        if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
+            product = Products()
+            product.Name = request.POST['Fname']
+            product.Username = request.POST['username']
+            product.Phone = request.POST['Phone']
+            product.state = request.POST['state']
+            product.city = request.POST['city']
+            #product.owner1=request.user
             product.save()
-            return redirect('/donator/'+ str(product.id))
+            return redirect("home")
+   
+        return render(request, 'ngopages/help.html',{f'error':'All fields are required {}'})
+    else:
+        return render(request, 'ngopages/help.html')
+   

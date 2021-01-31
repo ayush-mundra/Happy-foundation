@@ -3,8 +3,15 @@
 {% block content %}
 {% for product in products.all %}
 
+<!-- {{obj.Name}}
+{{obj.Username}} -->
+{{ product.Name}}
+{{ product.city}}
+{{ product.state}}
+{{ product.Phone}}
 
-<div class="card" style="width: 500px;">
+<br><br>
+ <div class="card" style="width: 500px;">
             <div class="row no-gutters">
                 <div class="col-sm-5">
                     <img class="card-img" src="{{ product.itemImage.url}}" alt="jeff">
@@ -18,7 +25,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-{% endfor %}
+        </div> 
+{% endfor %} 
 
 {% endblock %}
