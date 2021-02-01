@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for product in products.all %}
+
+ {% for r in res.all %} 
 
 <!-- {{obj.Name}}
 {{obj.Username}} -->
-{{ product.Name}}
+{{  r.Phone }}
+{% comment %} {{ product.Name}}
 {{ product.city}}
 {{ product.state}}
-{{ product.Phone}}
+{{ product.Phone}} {% endcomment %}
 
-<br><br>
+{% comment %} <br><br>
  <div class="card" style="width: 500px;">
             <div class="row no-gutters">
                 <div class="col-sm-5">
@@ -25,7 +27,9 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>  
+{% endcomment %}
 {% endfor %} 
+{% comment %} {% endfor %}  {% endcomment %}
 
 {% endblock %}

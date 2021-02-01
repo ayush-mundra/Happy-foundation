@@ -16,7 +16,7 @@ def createprofile(request):
             profile.Phone = request.POST['Phone']
             profile.state = request.POST['state']
             profile.city = request.POST['city']
-            #profile.owner2 = request.user
+            profile.owner2 = request.user
             profile.save()
             return redirect('home')
 
