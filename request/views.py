@@ -17,13 +17,16 @@ def needrequest(request):
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
             _request.save()
-            return redirect('home')
+            for i in Profile.objects.all():
+                if(i.owner2==request.user):
+                    return render(request, 'req_details.html',{"request": _request,"user":i})
         return render(request, 'need_request.html',{'error':'All fields are required'})
     else:
         return render(request, 'need_request.html')
 
-# bro i am going off for 1 hr talk to you after that my phone would be close ok but don't off vs code hkya bol rha h
-def reqdetails(request,request_id,user_id):
-     _request = get_object_or_404(Needrequest,pk=request_id)
-     profile = get_object_or_404(Profile,pk=user_id)
-     return render(request,'req_details.html',{'request':_request,'user':profile})
+
+# def reqdetails(request,):
+#       _request = get_object_or_404(Needrequest,pk=request_id)
+#       profile = get_object_or_404(Profile,pk=user_id)
+#       return render(request,'req_details.html',{'request':_request,'user':profile})
+#     #   what?

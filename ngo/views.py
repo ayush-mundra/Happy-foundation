@@ -3,6 +3,7 @@ from django.urls import path, include
 from ngo import views
 from django.conf import settings
 from django.conf.urls.static import static
+from donator.models import Product
 from ngo.models import Ngoprofile
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
@@ -11,16 +12,20 @@ from Userprofile.models import Profile
 # https://docs.djangoproject.com/en/3.1/topics/db/queries/
 def homes(request):
     ngopro = Ngoprofile.objects.all()
-    curr_user= request.user
-    profiles = Profile.objects.all()
-    res=[]
-    if( len(ngopro.filter(owner1=curr_user)) != 0):
-        curr_user = ngopro.filter(owner1=curr_user)[0]
-        print(curr_user)
-        for i in profiles:     
-            if curr_user.city == i.city:
-                res.append(i)   
-    return render(request,'ngopages/home.html',{'products':ngopro,"res": res })
+    profile_set= Profile.objects.filter(owner2=request.user)
+    # for profile in profile_set:
+    #     print(profile.Name)
+    return render(request,'ngopages/home.html',{'products':ngopro,"profile_set":profile_set  })
+    # curr_user= request.user
+    # profiles = Profile.objects.all()
+    # res=[]
+    # if( len(ngopro.filter(owner1=curr_user)) != 0):
+    #     curr_user = ngopro.filter(owner1=curr_user)[0]
+    #     print(curr_user)
+    #     for i in profiles:     
+    #         if curr_user.city == i.city:
+    #             res.append(i)   
+    # return render(request,'ngopages/home.html',{'products':ngopro,"res": res })
     # ngopro = Ngoprofile.objects.all()
     # curr_user= request.user
     # profiles = Profile.objects.all()
@@ -45,13 +50,15 @@ def homes(request):
     #     if(i.owner2==curr_user):
     #         CITY=i.city   
     # x         
-    
+def displayItem(request):
+    products = Product.objects
+    return render(request,'ngopages/displayitem.html',{'products':products})
 
 
 def help(request):
     if request.method == 'POST':
         if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
-            product = Products()
+            product = Ngoprofile()
             product.Name = request.POST['Fname']
             product.Username = request.POST['username']
             product.Phone = request.POST['Phone']

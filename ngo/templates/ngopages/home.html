@@ -2,12 +2,35 @@
 
 {% block content %}
 
- {% for r in res.all %} 
-
-<!-- {{obj.Name}}
-{{obj.Username}} -->
-{{  r.Phone }}
-{% comment %} {{ product.Name}}
+{% for r in profile_set.all %}
+<h2>{{  r.Name }}</h2>
+    {% for ngo in products.all %} 
+        {% if r.city == ngo.city %} 
+            {{ ngo.Name}} 
+            <br>
+            {{ ngo.city }}
+            <br>
+            {{ ngo.state }}
+            <br>
+            {{ ngo.Phone }}
+            <br>
+            <br>
+            <br>
+        {% endif %} 
+        {% comment %}
+        
+            <h1>
+            {{ ngo.Name}} 
+            {{ ngo.city }}
+            {{ ngo.state }}
+            {{ ngo.phone }}
+            </h1>
+        
+        {% endcomment %}
+    {% endfor %}
+{% endfor %}
+{% comment %}
+{{ product.Name}}
 {{ product.city}}
 {{ product.state}}
 {{ product.Phone}} {% endcomment %}
@@ -29,7 +52,5 @@
             </div>
         </div>  
 {% endcomment %}
-{% endfor %} 
-{% comment %} {% endfor %}  {% endcomment %}
 
 {% endblock %}
