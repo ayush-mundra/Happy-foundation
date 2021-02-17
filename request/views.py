@@ -10,9 +10,9 @@ from Userprofile.models import Profile
 @login_required
 def needrequest(request):
     if request.method == 'POST':
-        if  request.POST.get('body', False):
+        if  i request.POST.get('body', False)::
             _request =  Needrequest()
-            _request.title = request.POST['title']
+            _request.title = request.POST.get('title',False)
             _request.body = request.POST.get('body', False)
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
@@ -25,8 +25,17 @@ def needrequest(request):
         return render(request, 'need_request.html')
 
 
-# def reqdetails(request,):
-#       _request = get_object_or_404(Needrequest,pk=request_id)
-#       profile = get_object_or_404(Profile,pk=user_id)
-#       return render(request,'req_details.html',{'request':_request,'user':profile})
-#     #   what?
+def delete1(request):
+    if request.method=="POST":
+        for profile in Profile.objects.all():
+            if(request.user==profile.owner2):
+                profile.delete()
+                # bhia user create he nahi hoga tho delete ka buttin 
+                #BAAD ME YAHA CHANGES KARENGE
+                return render('delete1.html')
+
+
+
+            
+
+    

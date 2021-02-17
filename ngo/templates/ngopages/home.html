@@ -3,54 +3,28 @@
 {% block content %}
 
 {% for r in profile_set.all %}
-<h2>{{  r.Name }}</h2>
-    {% for ngo in products.all %} 
-        {% if r.city == ngo.city %} 
-            {{ ngo.Name}} 
-            <br>
-            {{ ngo.city }}
-            <br>
-            {{ ngo.state }}
-            <br>
-            {{ ngo.Phone }}
-            <br>
-            <br>
-            <br>
-        {% endif %} 
-        {% comment %}
-        
-            <h1>
-            {{ ngo.Name}} 
-            {{ ngo.city }}
-            {{ ngo.state }}
-            {{ ngo.phone }}
-            </h1>
-        
-        {% endcomment %}
-    {% endfor %}
-{% endfor %}
-{% comment %}
-{{ product.Name}}
-{{ product.city}}
-{{ product.state}}
-{{ product.Phone}} {% endcomment %}
-
-{% comment %} <br><br>
- <div class="card" style="width: 500px;">
+<h2>Your Name:{{  r.Name }}</h2>
+{% for ngo in products.all %} 
+{% if r.city == ngo.city %} 
+<div class="card" style="width: 500px;">
             <div class="row no-gutters">
                 <div class="col-sm-5">
                     <img class="card-img" src="{{ product.itemImage.url}}" alt="jeff">
                 </div>
                 <div class="col-sm-7">
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.Name}}</h5>
-                        <p class="card-text">{{ product.Address}}</p>
-                        <p class="card-text">{{ product.Phone}}</p>
+                        <h5 class="card-title">Ngo Name{{ ngo.Name}} </h5>
+                        <p class="card-text">Ngo City{{ ngo.city }}</p>
+                        <p class="card-text">Ngo State{{ ngo.state }}</p>
+                        <p class="card-text">{{ ngo.Phone }}</p>
                         <a href="#" class="btn btn-primary">View Profile</a>
                     </div>
                 </div>
             </div>
         </div>  
-{% endcomment %}
+
+        {% endif %} 
+    {% endfor %}
+{% endfor %}
 
 {% endblock %}

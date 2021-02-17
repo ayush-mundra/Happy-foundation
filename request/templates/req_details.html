@@ -1,7 +1,16 @@
+{% comment %}
 {% extends 'base.html' %}
-
+{% endcomment %}  
+{% comment %}
 {% block content %}
-
+{% endcomment %} 
+{% if user.is_authenticated %}
+{% csrf_token %}
+<a class="btn btn-sm btn-outline-danger " href="javascript:{document.getElementById('delete1').submit()}">delete request</a>
+<form id="delete1" method="POST" action="{% url 'delete1' %}">
+  {% csrf_token %}
+  <input type="hidden" />
+</form>
 <div >
   {{request.title}}
 </div>
@@ -23,5 +32,13 @@
     <p>{{ request.body }}</p>
   </div>
 </div>
+{% comment %}
+{% else %}
+{% comment %} 
+{% endcomment %}   
+          
+{% endif %}
+{% comment %}
 {% endblock %}
+{% endcomment %}   
         
