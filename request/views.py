@@ -10,21 +10,22 @@ from Userprofile.models import Profile
 @login_required
 def needrequest(request):
     if request.method == 'POST':
-        if  i request.POST.get('body', False)::
-            _request =  Needrequest()
-            _request.title = request.POST.get('title',False)
-            _request.body = request.POST.get('body', False)
-            _request.pub_date = timezone.datetime.now()
-            _request.needy = request.user
-            _request.save()
+        if request.POST.get("title",False) and request.POST.get("body", False):
+            request1 = Needrequest()
+            request1.title =  request.POST.get("title", "Guest (or whatever)")
+            request1.body = request.POST.get('body', False)
+            request1.pub_date = timezone.datetime.now()
+            request1.needy = request.user
+            request1.save()
             for i in Profile.objects.all():
-                if(i.owner2==request.user):
-                    return render(request, 'req_details.html',{"request": _request,"user":i})
-        return render(request, 'need_request.html',{'error':'All fields are required'})
-    else:
-        return render(request, 'need_request.html')
-
-
+                if(i.owner2==request1.needy):
+                    return render(request,"req_details.html",{"request": request1,"user":i})
+        
+        return redirect("home")
+        #return render(request, 'need_request.html',{'error':'All fields are required'})
+        
+    return render(request, 'need_request.html')
+    
 def delete1(request):
     if request.method=="POST":
         for profile in Profile.objects.all():
