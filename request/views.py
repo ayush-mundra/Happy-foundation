@@ -10,20 +10,33 @@ from Userprofile.models import Profile
 @login_required
 def needrequest(request):
     if request.method == 'POST':
-        if  request.POST.get('body', False):
+        if  request.POST.get("title",False) and request.POST.get("body", False):
             _request =  Needrequest()
-            _request.title = request.POST['title']
+            _request.title = request.POST.get('title',False)
             _request.body = request.POST.get('body', False)
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
             _request.save()
-            return redirect('home')
+            for i in Profile.objects.all():
+                 if(i.owner2==_request.needy):
+                     return render(request, 'req_details.html',{"request": _request})
+                     
+            return render(request, 'req_details.html',{"request": _request})
+
         return render(request, 'need_request.html',{'error':'All fields are required'})
     else:
-        return render(request, 'need_request.html')
+        return render(request, 'req_details.html')
 
-# bro i am going off for 1 hr talk to you after that my phone would be close ok but don't off vs code hkya bol rha h
-def reqdetails(request,request_id,user_id):
-     _request = get_object_or_404(Needrequest,pk=request_id)
-     profile = get_object_or_404(Profile,pk=user_id)
-     return render(request,'req_details.html',{'request':_request,'user':profile})
+
+def delete1(request):
+    if request.method=="POST":
+        for profile in Profile.objects.all():
+            if(request.user==profile.owner2):
+                profile.delete()
+                return render('delete1.html')
+
+
+
+            
+
+    

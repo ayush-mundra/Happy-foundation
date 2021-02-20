@@ -54,8 +54,8 @@ def upvote(request, product_id):
 @login_required(login_url="/accounts/signup")
 def delete(request):
     if request.method == 'POST':
-        # product = get_object_or_404(Product, pk=product_id)
-        #User.request.delete(product_id)
+        user = get_object_or_404(User, pk=request.user.pk)
+        user.delete()
         #product.save()
         return render(request,'donatorpages/delete.html')
 
