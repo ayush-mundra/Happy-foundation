@@ -3,4 +3,5 @@ from request import views
 urlpatterns = [
     path('needrequest', views.needrequest,name='needrequest'),
     path('delete1', views.delete1, name="delete1"),
+    # path('delete1', views.delete1, name="delete1"),
 ]
