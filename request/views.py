@@ -30,10 +30,14 @@ def needrequest(request):
 
 def delete1(request):
     if request.method=="POST":
-        for profile in Profile.objects.all():
-            if(request.user==profile.owner2):
-                profile.delete()
-                return render('delete1.html')
+        for req in Needrequest.objects.all():
+            if(request.user== req.needy):
+                req.delete()
+                # sunn 1 min ke leye connection lost hoga mai neeche jaa raaha hu mummy akeli hai
+                #sun ho gaya ok# 
+                
+                return render(request, 'delete1.html')
+
 
 
 
