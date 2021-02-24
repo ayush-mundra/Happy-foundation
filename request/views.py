@@ -33,8 +33,7 @@ def delete1(request):
         for req in Needrequest.objects.all():
             if(request.user== req.needy):
                 req.delete()
-                # sunn 1 min ke leye connection lost hoga mai neeche jaa raaha hu mummy akeli hai
-                #sun ho gaya ok# 
+               
                 
                 return render(request, 'delete1.html')
 
