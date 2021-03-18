@@ -5,7 +5,9 @@
 {%block content %}
 
 {% if error %}
-    {{ error }}
+ <p class="text-danger fs-1">
+ {{error}}
+</p>
     <br />
 
 {% endif %}
@@ -15,23 +17,19 @@
    
     <form method="POST" action="{% url 'signup' %}" class="form-signin">
     {% csrf_token %}
-  <img class="mb-4" src="https://media.tenor.com/images/175e5a779052a1e75881b0bed7c985c5/tenor.gif" alt="" width="200" height="200">
-  <h1 class="h3 mb-3 font-weight-normal text-left">Please sign Up</h1>
-   <label class="sr-only">Username</label>
+  <img class="mb-8" src="http://www.pngplay.com/wp-content/uploads/1/Sign-Up-PNG-Free-Image.png" alt="" width="400" height="200">
+  <h1 class="h3 mb-3 font-weight-normal text-left text-primary">Please sign Up</h1>
+   <label class="sr-only text-success fw-bold fs-3">Username</label>
   <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
   {% comment %} <label class="sr-only">Phone Number</label>
   <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> {% endcomment %}
 
-  <label for="inputPassword" class="sr-only">Password</label>
+  <label for="inputPassword" class="sr-only text-danger fw-bold fs-3">Password</label>
   <input type="password" name="password1"  class="form-control" placeholder="Password" required>
-  <label for="inputPassword"  class="sr-only">Confirm Password</label>
-  <input type="password" name="password2" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <input  class="btn btn-primary" type="submit" value="Sign UP"></input>
+  <label for="inputPassword"  class="sr-only text-danger fw-bold fs-3">Confirm Password</label>
+  <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required>
+  
+  <input  class="btn btn-success btn-lg" type="submit" value="Sign UP"></input>
  
 </form>
 </div>
