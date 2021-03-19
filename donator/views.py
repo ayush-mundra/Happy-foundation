@@ -50,7 +50,6 @@ def upvote(request, product_id):
    
 
 
-
 @login_required(login_url="/accounts/signup")
 def delete(request):
     if request.method == 'POST':
