@@ -1,26 +1,44 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
 
 {% if error %}
-{{ error }}
+<p class="text-danger fs-1">
+ {{error}}
+</p>
 <br />
 <br />
 {% endif %}
 
-<h1>Create</h1>
+<h1 class="text-info fs-2 text-center">Create</h1>
 
 <form method="POST" action="{% url 'needrequest' %}" enctype="multipart/form-data">
 {% csrf_token %}
-Title:
+<p class="text-primary fs-2">Name</p>
+<input type="text" name="name" />
 <br />
+<br />
+
+<p class="text-primary fs-2">Phone</p>
+<input type="text" name="phone" />
+<br />
+<br />
+
+<p class="text-primary fs-2">Title</p>
 <input type="text" name="title" />
 <br />
-Body:
 <br />
+
+<p class="text-primary fs-2"> Body </p>
 <input type="text" name="body" />
 <br />
+<br />
+
+<br />
+<div class="d-grid gap-2 col-6 mx-auto">
 <input class="btn btn-primary" type="submit" value="Add Product" />
+</div>
 </form>
 
 {% endblock %}

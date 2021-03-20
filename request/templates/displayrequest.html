@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for request in requests.all %}
+<div class="card" style="width: 500px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ product.itemImage.url}}" alt="jeff">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Of requester {{ request.name}} </h5>
+                        <p class="card-text">Mobile nO. {{ request.phone }}</p>
+                        <p class="card-text">Request title {{  request.title  }}</p>
+                        <p class="card-text">Request body {{ request.body }}</p>
+                       <a href="#" > <button class="btn btn-primary"> </button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+     
+{% endfor %}
+
+{% endblock %}

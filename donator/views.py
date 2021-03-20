@@ -4,7 +4,15 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Product
 import accounts
+
+# def donatedTo(request):
+#     product.donateTo = request.user
+#     product.save()
+#     return false;
 # Create your views here.
+def allproducts(request):
+    products = Product.objects
+    return render(request, 'donatorpages/allproduct.html',{'product':products})
 def home(request):
     return render(request,'donatorpages/home.html')
 def profile(request):
@@ -48,7 +56,6 @@ def upvote(request, product_id):
         product.save()
         return redirect('/products/' + str(product.id))
    
-
 
 
 @login_required(login_url="/accounts/signup")

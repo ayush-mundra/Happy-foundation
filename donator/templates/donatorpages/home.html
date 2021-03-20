@@ -2,53 +2,49 @@
 {% extends 'base.html' %}
 
 {%block content %}
-<h1>
+<p class="text-danger fs-1">
  {{error}}
+</p>
 
-</h1>
 <main class="container">
-  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">No one has ever become poor by giving</h1>
-      <p class="lead my-3">We have taken an initiave to help those who have no one to help them!</p>
-      {% comment %} <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p> {% endcomment %}
-    </div>
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-info">
+    <div class="col-md-12 px-0">
+     <p class="text-center fs-1">No one has ever become poor by giving</p>
+     <p class="text-center fs-2">We have taken an initiave to help those who have no one to help them!</p>
+        </div>
   </div>
-
+<a  href="{% url 'signup' %}">
   <div class="row mb-2">
     <div class="col-md-6">
-      <a href="{% url 'signup' %}" >
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">Help Others</strong>
-          <h3 class="mb-0 text-dark">Do You wish to Donate?</h3>
-          <p class="card-text mb-auto text-dark">Remember that the happiest people are not those getting more, but those giving more.</p>
-          {% comment %} <a href="#" class="stretched-link">Continue reading</a> {% endcomment %}
-        </div>
-      
+          <strong class="d-inline-block mb-2 text-primary">Todo Help</strong>
+         <p class="fs-1 text-success fw-bold">Wish to Donate</p>
+                  </div>
         <div class="col-auto d-none d-lg-block">
-        <img src = "https://imgix.bustle.com/uploads/image/2019/5/2/ffa82ad4-937e-412c-9bfd-33cb9252e88e-instagram-donate.jpg?w=1020&h=576&fit=crop&crop=faces&auto=format%2Ccompress" class="img-fluid" alt="Responsive image">
-          
-        </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <a href="{% url 'signup' %}" >
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Need help</strong>
-          <h3 class="mb-0 text-dark">Shall we help you?</h3>
-          {% comment %} <div class="mb-1 text-muted">Nov 11</div> {% endcomment %}
-          <p class="mb-auto text-dark">Don't afraid to seek help</p>
-          {% comment %} <a href="#" class="stretched-link">Continue reading</a> {% endcomment %}
-        </div>
-        <div class="col-auto d-none d-lg-block">
-           <img src = "https://i1.wp.com/www.udayfoundation.org/wp-content/uploads/2017/11/doante-blankets-7.jpg?w=1224&ssl=1" class="img-fluid" alt="Responsive image">
+          <img class="bd-placeholder-img" width="350" height="250" src="https://imgix.bustle.com/uploads/image/2019/5/2/ffa82ad4-937e-412c-9bfd-33cb9252e88e-instagram-donate.jpg?w=1020&h=576&fit=crop&crop=faces&auto=format%2Ccompress" </img>
 
         </div>
       </div>
-      </a>
+    </div>
+ 
+     
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-warning">Need Help</strong>
+         <p class="fs-1 text-danger fw-bold">Need Donatation</p>
+                  </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="350" height="250" src="https://i1.wp.com/www.udayfoundation.org/wp-content/uploads/2017/11/doante-blankets-7.jpg?w=1224&ssl=1" </img>
+
+        </div>
+      </div>
     </div>
   </div>
+  </a>
+</main>
+
+</div>
+    
 {% endblock %}

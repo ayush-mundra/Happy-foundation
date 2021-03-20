@@ -14,7 +14,9 @@
           Donated by {{ product.Name }}  <br/> {{ product.body }}</p>
         </div>
         <div class="card-action">
-          <a href="#">For More details </a>
+
+        {% comment %} {{ product.donatedTo }}
+          <a href={% url 'donateTo' %}>I want this</a> {% endcomment %}
         </div>
       </div>
     </div>
@@ -50,9 +52,9 @@
   </div>
 </div> {% endcomment %}
 
-<form id="upvote" method="POST" action="{% url 'upvote' product.id %}">
+{% comment %} <form id="upvote" method="POST" action="{% url 'upvote' product.id %}">
   {% csrf_token%}
   <input type="hidden">
-</form>
+</form> {% endcomment %}
 
 {% endblock %}

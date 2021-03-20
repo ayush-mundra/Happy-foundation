@@ -3,37 +3,47 @@
 {% block content %}
 
 {% if error %}
-{{ error }}
+<p class="text-danger fs-1">
+ {{error}}
+</p>
 <br />
-<br />
+
 {% endif %}
 
-<h1>Create</h1>
+{% comment %} <div class="bg-image"
+style="background-image: url('https://wallpapercave.com/wp/X49EwD0.jpg');
+      height: 100vh"> {% endcomment %}
+
+<h1 class="text-center text-success">Create</h1>
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
 {% csrf_token %}
  {% comment %} <i class="material-icons prefix">account_circle</i> {% endcomment %}
-  <label for="name">Full Name</label>
+  <label for="name" class="text-info fw-bold fs-3">Full Name</label>
  
  <input placeholder="Full Name" name="name" id="name" type="text" class="validate">
 
 <br />
 <div class="input-field col s6">
- <input id="title"  name="title" type="text" class="validate">
-          <label for="title">title</label>
+<label for="title" class="text-info fw-bold fs-3">title</label>
+ <input id="title" placeholder="title" name="title" type="text" class="validate">
+          
 </div>
 <br />
 <div class="input-field col s6">
- <input id="body"  name="body" type="text" class="validate">
-          <label for="body">Body</label>
+<label for="body" class="text-info fw-bold fs-3">Body</label>
+ <input id="body"placeholder="Body" name="body" type="text" class="validate">
+          
 </div>
 <div class="input-field col s6">
+  <label for="phone " class="text-info fw-bold fs-3">phone</label>
  <input id="body"  name="phone" type="text" class="validate">
-          <label for="phone">phone</label>
+        
 </div>
 <div class="input-field col s6">
+<label for="address" class="text-info fw-bold fs-3">Address</label>
  <input id="body"  name="address" type="text" class="validate">
-          <label for="address">Address</label>
+          
 </div>
 
 
@@ -58,18 +68,8 @@
       </div>
     </div>
 
-{% comment %} <div class="btn">
-<span>Product Image </span>
-<input class="file" name="itemimage" />
-</div> {% endcomment %}
-{% comment %} <br />
-Governmet Id
-<br />
-<input type="file" name="id" />
-<br /> {% endcomment %}
-<br />
-<br />
-<input class="btn btn-primary blue" type="submit" value="save product" />
+<input class="btn btn-success btn-rounded" type="submit" value="save product" />
+{% comment %} <button type="button" class="btn btn-success btn-rounded">Success</button> {% endcomment %}
 </form>
 
 {% endblock %}
