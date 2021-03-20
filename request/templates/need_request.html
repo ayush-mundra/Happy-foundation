@@ -15,16 +15,26 @@
 
 <form method="POST" action="{% url 'needrequest' %}" enctype="multipart/form-data">
 {% csrf_token %}
-<p class="text-primary fs-2">Title</p>
+<p class="text-primary fs-2">Name</p>
+<input type="text" name="name" />
+<br />
+<br />
 
+<p class="text-primary fs-2">Phone</p>
+<input type="text" name="phone" />
+<br />
+<br />
+
+<p class="text-primary fs-2">Title</p>
 <input type="text" name="title" />
 <br />
 <br />
-<p class="text-primary fs-2"> Body </p>
 
+<p class="text-primary fs-2"> Body </p>
 <input type="text" name="body" />
 <br />
 <br />
+
 <br />
 <div class="d-grid gap-2 col-6 mx-auto">
 <input class="btn btn-primary" type="submit" value="Add Product" />

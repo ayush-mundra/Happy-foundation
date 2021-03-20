@@ -8,4 +8,4 @@ class Ngoprofile(models.Model):
     Phone = models.CharField(max_length=20)
     state = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
-    owner1 = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
+    owner2 = models.ForeignKey(User, on_delete=models.CASCADE,default=1)

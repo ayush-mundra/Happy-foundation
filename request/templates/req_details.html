@@ -13,6 +13,9 @@
   </HEAD>
   <BODY>
         {{request.title}}
+        {{request.name}}
+        {{request.phone}}
+        {{request.body}}
         <a type="button" class="btn btn-success" href="javascript:{document.getElementById('delete').submit()}">DelRequest</a>
         <form id="delete" method="POST" action="{% url 'delete1' %}">
           {% csrf_token %}

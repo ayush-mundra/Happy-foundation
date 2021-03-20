@@ -54,6 +54,7 @@ def displayItem(request):
     products = Product.objects
     return render(request,'ngopages/displayitem.html',{'products':products})
 
+# def donateto(request):
 
 def help(request):
     if request.method == 'POST':

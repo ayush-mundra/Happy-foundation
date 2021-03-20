@@ -7,11 +7,13 @@ class Product(models.Model):
    Name = models.CharField(max_length=200)
    Phone = models.CharField(max_length=20)
    address = models.CharField(max_length=200)
-   pub_date = models.DateTimeField() 
+   pub_date = models.DateTimeField()         
    body = models.TextField()
    itemImage = models.ImageField(upload_to='images/')
    Id = models.ImageField(upload_to='images/')
-#    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+   owner = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+
+
 
 def  __str__(self):
     return self.title 

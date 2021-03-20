@@ -10,10 +10,12 @@ from Userprofile.models import Profile
 @login_required
 def needrequest(request):
     if request.method == 'POST':
-        if  request.POST.get("title",False) and request.POST.get("body", False):
+        if  request.POST.get("title",False) and request.POST.get("body", False) and request.POST.get('name', False) and  request.POST.get('phone', False):
             _request =  Needrequest()
             _request.title = request.POST.get('title',False)
             _request.body = request.POST.get('body', False)
+            _request.phone = request.POST.get('name', False)
+            _request.name = request.POST.get('phone', False)
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
             _request.save()
@@ -40,10 +42,12 @@ def delete1(request):
 def edit(request, id):
     _request = get_object_or_404(Needrequest, pk=id)
     if request.method=="POST":
-        if request.POST.get("title",False) and request.POST.get("body", False):
+        if request.POST.get("title",False) and request.POST.get("body", False) and request.POST.get('name', False) and request.POST.get('phone', False):
             _request =  Needrequest()
             _request.title = request.POST.get('title',False)
             _request.body = request.POST.get('body', False)
+            _request.phone = request.POST.get('name', False)
+            _request.name = request.POST.get('phone', False)
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
             _request.save()
@@ -51,3 +55,7 @@ def edit(request, id):
             
         return render(request, "index7.html", {"error":"fill all the inputs", "id": id })		
     return render(request, "index7.html",{"id":id})
+
+def displayrequest(request):
+    request1 = Needrequest.objects.all()
+    return render(request,'displayrequest.html',{'requests':request1})
