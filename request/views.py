@@ -20,7 +20,7 @@ def needrequest(request):
             _request.needy = request.user
             _request.save()
             for i in Profile.objects.all():
-                 if(i.owner2==_request.needy):
+                 if(i.profile_owner==_request.needy):
                      return render(request, 'req_details.html',{"request": _request})
                      
             return render(request, 'req_details.html',{"request": _request})

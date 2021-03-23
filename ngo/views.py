@@ -12,7 +12,7 @@ from Userprofile.models import Profile
 # https://docs.djangoproject.com/en/3.1/topics/db/queries/
 def homes(request):
     ngopro = Ngoprofile.objects.all()
-    profile_set= Profile.objects.filter(owner2=request.user)
+    profile_set= Profile.objects.filter(profile_owner=request.user)
     # for profile in profile_set:
     #     print(profile.Name)
     return render(request,'ngopages/home.html',{'products':ngopro,"profile_set":profile_set  })
@@ -58,14 +58,15 @@ def displayItem(request):
 
 def help(request):
     if request.method == 'POST':
-        if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
+        if request.POST['Fname'] and request.FILES['certificates'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
             product = Ngoprofile()
             product.Name = request.POST['Fname']
-            product.Username = request.POST['username']
+            product.certificates = request.FILES['certificates']
+            # product.Username = request.POST['username']
             product.Phone = request.POST['Phone']
             product.state = request.POST['state']
             product.city = request.POST['city']
-            product.owner1=request.user
+            product.ngo_creator=request.user
             product.save()
             return redirect("home")
    

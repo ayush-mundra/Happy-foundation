@@ -10,66 +10,74 @@
 
 {% endif %}
 
-{% comment %} <div class="bg-image"
+ {% comment %} <div class="bg-image"
 style="background-image: url('https://wallpapercave.com/wp/X49EwD0.jpg');
-      height: 100vh"> {% endcomment %}
+      height: 100vh">  {% endcomment %}
 
 <h1 class="text-center text-success">Create</h1>
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+<div class="container">
 {% csrf_token %}
- {% comment %} <i class="material-icons prefix">account_circle</i> {% endcomment %}
-  <label for="name" class="text-info fw-bold fs-3">Full Name</label>
- 
- <input placeholder="Full Name" name="name" id="name" type="text" class="validate">
+
+ </br>
+<p class="form-label text-primary text-center" for="user">Full Name</p>
+<div class="form-outline">
+  <input type="text" id="body"  name="name"  class="form-control validate" />
+  <label class="form-label" for="body">Full Name</label>
+</div>
+ </br>
+<p class="form-label text-primary text-center" for="user">title</p>
+<div class="form-outline">
+  <input type="text" id="body"  name="title"  class="form-control validate" />
+  <label class="form-label" for="body">title</label>
+</div>
+ </br>
+<p class="form-label text-primary text-center" for="user">Body</p>
+<div class="form-outline">
+  <input type="text" id="body"  name="body"  class="form-control validate" />
+  <label class="form-label" for="body">Body</label>
+</div>
+ </br>
+<p class="form-label text-primary text-center" for="user">phone</p>
+<div class="form-outline">
+  <input type="text" id="body"  name="phone"  class="form-control validate" />
+  <label class="form-label" for="body">phone</label>
+</div>
+ </br>
+<p class="form-label text-primary text-center" for="user">Address</p>
+<div class="form-outline">
+  <input type="text" id="body"  name="address"  class="form-control validate" />
+  <label class="form-label " for="body">Address</label>
+</div>
+
+
 
 <br />
-<div class="input-field col s6">
-<label for="title" class="text-info fw-bold fs-3">title</label>
- <input id="title" placeholder="title" name="title" type="text" class="validate">
-          
-</div>
-<br />
-<div class="input-field col s6">
-<label for="body" class="text-info fw-bold fs-3">Body</label>
- <input id="body"placeholder="Body" name="body" type="text" class="validate">
-          
-</div>
-<div class="input-field col s6">
-  <label for="phone " class="text-info fw-bold fs-3">phone</label>
- <input id="body"  name="phone" type="text" class="validate">
-        
-</div>
-<div class="input-field col s6">
-<label for="address" class="text-info fw-bold fs-3">Address</label>
- <input id="body"  name="address" type="text" class="validate">
-          
-</div>
 
-
-{% comment %} Item Image: {% endcomment %}
-<br />
 <div class="file-field input-field ">
-      <div class="btn light-blue accent-3" >
+      <div class="btn btn-outline-info" >
         <span>Product Image </span>
         <input type="file" name="itemimage" >
       </div>
-      <div class="file-path-wrapper" >
-        <input class="file-path validate" type="text">
-      </div>
+      
     </div>
-<div class="file-field input-field">
-      <div class="btn red lighten-1" >
+    </br>
+<div class="file-field input-field ">
+      <div class="btn btn-outline-secondary" >
         <span>Governmet Id </span>
         <input type="file" name="id" >
       </div>
-      <div class="file-path-wrapper" >
-        <input class="file-path validate" type="text">
-      </div>
+     
     </div>
+</br>
+<div class="d-grid gap-2 col-6 mx-auto">
 
-<input class="btn btn-success btn-rounded" type="submit" value="save product" />
+<input class="btn btn-success btn-rounded" type="submit" value="save product" />>
+</div>
+
 {% comment %} <button type="button" class="btn btn-success btn-rounded">Success</button> {% endcomment %}
 </form>
+</div>
 
 {% endblock %}

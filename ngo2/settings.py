@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'ngo2.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ngo5',
+        'NAME': 'ngo_final1',
         'USER':'postgres',
         'PASSWORD':'1234',
         'HOST':'localhost',

@@ -10,8 +10,8 @@ class Product(models.Model):
    pub_date = models.DateTimeField()         
    body = models.TextField()
    itemImage = models.ImageField(upload_to='images/')
-   Id = models.ImageField(upload_to='images/')
-   owner = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+   govt_id = models.ImageField(upload_to='images/')
+   product_owner = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
 
 
 

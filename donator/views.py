@@ -30,10 +30,10 @@ def create(request):
             product.body = request.POST['body']
             product.Phone = request.POST['phone']
             product.address = request.POST['address']
-            product.Id = request.FILES['id']
+            product.govt_id = request.FILES['id']
             product.itemImage = request.FILES['itemimage']
             product.pub_date = timezone.datetime.now()
-            product.owner = request.user
+            product.product_owner = request.user
             product.save()
             return redirect('/donator/'+ str(product.id))
 
