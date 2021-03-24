@@ -12,7 +12,7 @@ def createprofile(request):
     profiles=Profile.objects.all()
     for i in profiles:
         if(i.profile_owner==request.user):
-            return render(request, 'donatorpages/home.html',{'error':'your profile already created'})
+            return render(request, 'donatorpages/home.html',{'error':'your profile is already created'})
     
     if request.method == 'POST':
         if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
@@ -22,7 +22,7 @@ def createprofile(request):
             profile.Phone = request.POST['Phone']
             profile.state = request.POST['state']
             profile.city = request.POST['city']
-            profile.owner2 = request.user
+            profile.profile_owner  = request.user
             profile.save()
             return redirect('home')
 

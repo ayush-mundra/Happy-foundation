@@ -11,34 +11,26 @@
 <br />
 {% endif %}
 
-<h1 class="text-info fs-2 text-center">Create</h1>
+<h1 class="text-info fs-2 text-center">Create request</h1>
 
+<body class="text-center">
+    
 <form method="POST" action="{% url 'needrequest' %}" enctype="multipart/form-data">
 {% csrf_token %}
-<p class="text-primary fs-2">Name</p>
-<input type="text" name="name" />
-<br />
-<br />
-
-<p class="text-primary fs-2">Phone</p>
-<input type="text" name="phone" />
-<br />
-<br />
-
-<p class="text-primary fs-2">Title</p>
-<input type="text" name="title" />
-<br />
-<br />
-
-<p class="text-primary fs-2"> Body </p>
-<input type="text" name="body" />
-<br />
-<br />
-
-<br />
-<div class="d-grid gap-2 col-6 mx-auto">
-<input class="btn btn-primary" type="submit" value="Add Product" />
-</div>
+  <br><br>
+  <label class="sr-only text-primary fs-2">Name</label>
+  <input type="text" name="Fname" class="form-control" placeholder="Complete Name" required autofocus>
+  <br><br>
+  <label class="sr-only text-primary fs-2">Title</label>
+  <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+  <br><br>
+  <label class="sr-only text-primary fs-2">Body</label>
+  <input type="text" name="BOSY" class="form-control" placeholder="Username" required autofocus>
+  <br><br>
+  <label class="sr-only text-primary fs-2">Phone Number</label>
+  <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
+ <br><br>
+  <input  class="btn btn-primary" type="submit" value="Push request"></input> 
 </form>
 
 {% endblock %}
