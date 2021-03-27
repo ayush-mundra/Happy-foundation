@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 
 def signup(request):
     if request.method == 'POST':
-        # User has info and wants an account now!
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.get(username=request.POST['username'])
@@ -17,7 +16,6 @@ def signup(request):
         else:
             return render(request, 'accounts/signup.html', {'error':'Passwords must match'})
     else:
-        # User wants to enter info
         return render(request, 'accounts/signup.html')
   
 def login(request):
@@ -39,13 +37,3 @@ def logout(request):
     
         return redirect('home')
 
-
-
-#@login_required(login_url="/accounts/signup")
-#def delete(request):
-    #if request.method == 'POST':
-      #  User.objects.all()[].delete()
-       # return render(request,'accounts/delete.html')
-     
-# Main bolta hu phele tu request wala kaam karr le ye chota hai parr time consuming hai
-# this is working only i have to search the delete query

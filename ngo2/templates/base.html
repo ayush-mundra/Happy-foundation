@@ -51,20 +51,8 @@
       <div class="col-6 d-flex justify-content-end align-items-center">
         {% if user.is_authenticated %}
           {% csrf_token %}
-          
-          <form id="delete" method="POST" action="{% url 'delete' %}">
-            {% csrf_token %}
-            <input type="hidden" />
-            </form>
-        <a type="button" class="btn btn-success btn-sm" href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
-        <form id="Request" method="POST" action="{% url 'needrequest' %}">
-          {% csrf_token %}
-          <input type="hidden" />
-        </form>
 
-        
-
-<div class="dropdown">
+          <div class="dropdown">
   <button
     class="btn btn-primary dropdown-toggle"
     type="button"
@@ -83,11 +71,23 @@
   </ul>
 </div>
 
-        <a href="{% url 'create' %}"><button type="button" class="btn btn-success btn-sm"><i class="fas fa-hand-holding-usd"></i>Donate</button></a>
+          
+          <form id="delete" method="POST" action="{% url 'delete' %}">
+            {% csrf_token %}
+            <input type="hidden" />
+            </form>
+        <a type="button" class="btn btn-success btn-sm" href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
+        <form id="Request" method="POST" action="{% url 'needrequest' %}">
+          {% csrf_token %}
+          <input type="hidden" />
+        </form>
+
+        
+        <a href="{% url 'create' %}"><button type="button" class="btn btn-info btn-sm"><i class="fas fa-hand-holding-usd"></i>Donate</button></a>
                  {% comment %} <a href="{% url 'details' %}"><button type="button" class="btn btn-info">showItem</button></a> {% endcomment %}
 
         {% comment %} <a  type="button" class="btn btn-info" href="{% url 'homes' %}">show ngo</a> {% endcomment %}
-        <a  type="button" class="btn btn-primary btn-sm" href="{% url 'help' %}"><i class="fas fa-hotel"></i> Ngo_create</a>
+        <a  type="button" class="btn btn-secondary btn-sm" href="{% url 'help' %}"><i class="fas fa-hotel"></i> Ngo_create</a>
         {% comment %} <a  type="button" class="btn btn-primary" href="{% url 'create' %}">Help_Me</a> {% endcomment %}
         <div class="dropdown">
   <button

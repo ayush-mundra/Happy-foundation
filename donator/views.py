@@ -5,11 +5,7 @@ from django.utils import timezone
 from .models import Product
 import accounts
 
-# def donatedTo(request):
-#     product.donateTo = request.user
-#     product.save()
-#     return false;
-# Create your views here.
+
 def allproducts(request):
     products = Product.objects
     return render(request, 'donatorpages/allproduct.html',{'product':products})
@@ -40,6 +36,7 @@ def create(request):
         return render(request, 'donatorpages/create.html',{'error':'All fields are required'})
     else:
         return render(request, 'donatorpages/create.html')
+
 def details(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
     return render(request,'donatorpages/detail.html',{'product':product})
