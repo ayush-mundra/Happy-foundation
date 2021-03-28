@@ -1,25 +1,33 @@
+{% extends 'base.html' %}
+<div class="row d-flex justify-content-center">
 
-<HTML>
-  <HEAD>
-    <head>
-      <title>Bootstrap 4 Example</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </head>
-  </HEAD>
-  <BODY>
-        {{request.title}}
-        {{request.name}}
-        {{request.phone}}
-        {{request.body}}
-        <a type="button" class="btn btn-success" href="javascript:{document.getElementById('delete').submit()}">DelRequest</a>
-        <form id="delete" method="POST" action="{% url 'delete1' %}">
-          {% csrf_token %}
-          <input type="hidden" />
-        </form>
-  </BODY>
-</HTML>
+{% block content %}
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem; height:50px">
+     
+<div class="card text-center border border-primary shadow-0 "style="width: 18rem">
+  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    
+    <a href="#!">
+      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+    </a>
+  </div>
+
+  <div class="card-body">
+    Request id:{{request.id}}
+   <h5 class="card-title">Name Of requester :  {{ request.name}} </h5>
+                  <p class="card-text">Mobile no. : {{ request.phone }}</p>
+                  <p class="card-text">Request title : {{  request.title  }}</p>
+                  <p class="card-text">Request body : {{ request.body }}</p>
+          
+                  <a type="button" class="btn btn-danger" href="javascript:{document.getElementById('delete1').submit()}">DelRequest</a>
+                  <form id="delete1" method="POST" action="{% url 'delete1' %}">
+                  {% csrf_token %}
+                  <input type="hidden" />
+                  </form>
+  </div>
+  </section>
+  </div>
+</div>
+</div>
+{% endblock %}

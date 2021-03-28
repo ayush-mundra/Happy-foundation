@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Needrequest
 from Userprofile.models import Profile
+import donator;
+import Userprofile;
 
 
 @login_required
@@ -14,30 +16,28 @@ def needrequest(request):
             _request =  Needrequest()
             _request.title = request.POST.get('title',False)
             _request.body = request.POST.get('body', False)
-            _request.phone = request.POST.get('name', False)
-            _request.name = request.POST.get('phone', False)
+            _request.name = request.POST.get('name', False)
+            _request.phone = request.POST.get('phone', False)
             _request.pub_date = timezone.datetime.now()
             _request.needy = request.user
-            _request.save()
             for i in Profile.objects.all():
-                 if(i.owner2==_request.needy):
-                     return render(request, 'req_details.html',{"request": _request})
-                     
-            return render(request, 'req_details.html',{"request": _request})
-
+                if(i.profile_owner==_request.needy):
+                    _request.save()
+                    return render(request, 'req_details.html',{"request": _request})
+                else:
+                    return render(request, 'Pform.html',{'error':'create your profile first'})
+                
         return render(request, 'need_request.html',{'error':'All fields are required'})
-    else:
-        return render(request, 'req_details.html')
+    
+    return render(request, 'need_request.html')
 
 
 def delete1(request):
-    if request.method=="POST":
-        for req in Needrequest.objects.all():
-            if(request.user== req.needy):
-                req.delete()
-               
-                
-                return render(request, 'delete1.html')
+        if request.method=="POST":
+            for req in Needrequest.objects.all():
+                if(request.user== req.needy):
+                    req.delete() 
+                    return render(request, 'delete1.html')
 
 def edit(request, id):
     _request = get_object_or_404(Needrequest, pk=id)
