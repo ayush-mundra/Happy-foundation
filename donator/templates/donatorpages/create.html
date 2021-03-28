@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
 {% block content %}
 
@@ -13,7 +13,16 @@
  {% comment %} <div class="bg-image"
 style="background-image: url('https://wallpapercave.com/wp/X49EwD0.jpg');
       height: 100vh">  {% endcomment %}
-
+     </br>
+     <div class="d-flex justify-content-center">
+     
+      <img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvvPxwp4uuPxM0IXEE8vxXJ-Ujg5kVeHGZNA&usqp=CAU"
+  class="img-fluid rounded-circle"
+  alt=""
+/>
+</div>
+     
 <h1 class="text-center text-success">Create</h1>
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">

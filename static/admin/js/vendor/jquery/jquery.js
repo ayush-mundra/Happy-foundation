@@ -282,7 +282,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		// Only deal with non-null/undefined values
 		if ( ( options = arguments[ i ] ) != null ) {
 
-			// Extend the base object
+			// Extend the index object
 			for ( name in options ) {
 				copy = options[ name ];
 
@@ -2390,11 +2390,11 @@ function toSelector( tokens ) {
 	return selector;
 }
 
-function addCombinator( matcher, combinator, base ) {
+function addCombinator( matcher, combinator, index ) {
 	var dir = combinator.dir,
 		skip = combinator.next,
 		key = skip || dir,
-		checkNonElements = base && key === "parentNode",
+		checkNonElements = index && key === "parentNode",
 		doneName = done++;
 
 	return combinator.first ?
@@ -5663,7 +5663,7 @@ function leverageNative( el, type, expectSync ) {
 				// (focus or blur), assume that the surrogate already propagated from triggering the
 				// native event and prevent that from happening again here.
 				// This technically gets the ordering wrong w.r.t. to `.trigger()` (in which the
-				// bubbling surrogate propagates *after* the non-bubbling base), but that seems
+				// bubbling surrogate propagates *after* the non-bubbling index), but that seems
 				// less bad than duplication.
 				} else if ( ( jQuery.event.special[ type ] || {} ).delegateType ) {
 					event.stopPropagation();
@@ -10306,7 +10306,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 		context = false;
 	}
 
-	var base, parsed, scripts;
+	var index, parsed, scripts;
 
 	if ( !context ) {
 
@@ -10315,12 +10315,12 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 		if ( support.createHTMLDocument ) {
 			context = document.implementation.createHTMLDocument( "" );
 
-			// Set the base href for the created document
+			// Set the index href for the created document
 			// so any parsed elements with URLs
 			// are based on the document's URL (gh-2965)
-			base = context.createElement( "base" );
-			base.href = document.location.href;
-			context.head.appendChild( base );
+			index = context.createElement( "index" );
+			index.href = document.location.href;
+			context.head.appendChild( index );
 		} else {
 			context = document;
 		}
