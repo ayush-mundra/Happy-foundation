@@ -1,56 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p class="fs-1"> make sure you have made you profile first by clicking on the avator icon in nav bar </p>
-<div  class=" d-flex align-items-center justify-content-around">
-{% for product in products.all %}
-{% comment %} <div class="card">
-  <img
-    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-    class="card-img-top"
-    alt="..."
-  />
+</br>
+<div class="card text-center border border-secondary">
   <div class="card-body">
-    <h5 class="card-title">{{ product.Name}}</h5>
-    <p class="card-text">
-     {{ product.Address}}</p>
-    <p class="card-text">{{ product.Phone}}</p>
-    <p class="card-text">{{ product.body }}</p>
-  
-    <a href="#!" class="btn btn-primary">Button</a>
+    <h5 class="card-title text-danger"> make sure you have made you profile first by clicking on the avator icon in nav bar or below one </h5>
+  <a href="{% url 'createprofile' %}"> <i class="fas fa-user-tie fa-2x text-info"></i></a>
   </div>
 </div>
-  {% endcomment %}
- {% comment %} <div class="card text-center border border-primary shadow-0  "style="width: 18rem">
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 31rem;">
+  {% for product in products.all %}
+  <div class="card text-center border border-primary shadow-0 mb-3" style="width: 38rem">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src={{ product.itemImage.url }} class="img-fluid" />
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+  </div>
   <div class="card-body">
-    <h5 class="card-title">{{ product.Name}}</h5>
-    <p class="card-text">
-     {{ product.Address}}
-    <p class="card-text">{{ product.Phone}}</p>
-    <p class="card-text">{{ product.body }}</p>
-    </p>
-
-    <button type="button" class="btn btn-outline-success">I need this</button>
+      <p class="card-text"> Title: {{product.title }}</p>
+      <p class="card-text"> Body : {{product.body }}</p>
+      <h5 class="card-title">Name: {{  product.Name}}</h5>
+      <p class="card-text">Phone : {{ product.Phone}}</p>
+      <p class="card-text">Address :{{  product.address}}</p>
+      <p class="card-text">Creation date :{{  product.pub_date}}</p>
+      <button type="button" class="btn btn-outline-success">I need this</button>
   </div>
-</div> {% endcomment %}
-<div class="card text-center border border-primary shadow-0 "style="width: 18rem">
-  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.jpg" class="img-fluid" />
-    <a href="#!">
-      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-    </a>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of the
-      card's content.
-    </p>
-
-    <button type="button" class="btn btn-primary">Button</button>
-  </div>
+  {% endfor %}
+  </section> 
 </div>
-{% endfor %}
-  </div>
+
 {% endblock %}

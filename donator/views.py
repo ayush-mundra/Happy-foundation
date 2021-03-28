@@ -43,18 +43,9 @@ def details(request,product_id):
     
 def info(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
-
     return render(request,'donatorpages/info.html',{'product':product})
-    
-@login_required(login_url="/accounts/signup")
-def upvote(request, product_id):
-    if request.method == 'POST':
-        product = get_object_or_404(Product, pk=product_id)
-        product.save()
-        return redirect('/products/' + str(product.id))
+
    
-
-
 @login_required(login_url="/accounts/signup")
 def delete(request):
     if request.method == 'POST':

@@ -15,7 +15,7 @@ def homes(request):
     profile_set= Profile.objects.filter(profile_owner=request.user)
     # for profile in profile_set:
     #     print(profile.Name)
-    return render(request,'ngopages/home.html',{'products':ngopro,"profile_set":profile_set  })
+    return render(request,'ngopages/homes.html',{'ngos':ngopro,"profile_set":profile_set  })
     # curr_user= request.user
     # profiles = Profile.objects.all()
     # res=[]
