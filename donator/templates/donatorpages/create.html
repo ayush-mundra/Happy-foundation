@@ -17,41 +17,37 @@ style="background-image: url('https://wallpapercave.com/wp/X49EwD0.jpg');
 <h1 class="text-center text-success">Create</h1>
 <!-- ectype use to send data to database using form -->
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
-<div class="container">
+ <div class="container border border-dark rounded-3">
+         <section class="mx-auto my-4" style="max-width: 31rem;">
 {% csrf_token %}
 
  </br>
 <p class="form-label text-primary text-center" for="user">Full Name</p>
-<div class="form-outline">
-  <input type="text" id="body"  name="name"  class="form-control validate" />
-  <label class="form-label" for="body">Full Name</label>
-</div>
+
+  <input placeholder="Full Name" type="text" id="body"  name="name"  class="form-control" placeholder="Complete Name" required autofocus>
+
  </br>
-<p class="form-label text-primary text-center" for="user">title</p>
-<div class="form-outline">
-  <input type="text" id="body"  name="title"  class="form-control validate" />
-  <label class="form-label" for="body">title</label>
-</div>
+<p class="form-label text-primary text-center" for="user">Title</p>
+
+  <input placeholder="Title" type="text" id="body"  name="title"  class="form-control validate" />
+
+
  </br>
 <p class="form-label text-primary text-center" for="user">Body</p>
-<div class="form-outline">
-  <input type="text" id="body"  name="body"  class="form-control validate" />
-  <label class="form-label" for="body">Body</label>
-</div>
+
+  <input placeholder="Body" type="text" id="body"  name="body"  class="form-control validate" />
+ 
+
  </br>
-<p class="form-label text-primary text-center" for="user">phone</p>
-<div class="form-outline">
-  <input type="text" id="body"  name="phone"  class="form-control validate" />
-  <label class="form-label" for="body">phone</label>
-</div>
+<p class="form-label text-primary text-center" for="user">Phone</p>
+
+  <input placeholder="Phone" type="text" id="body"  name="phone"  class="form-control validate" />
+
+
  </br>
 <p class="form-label text-primary text-center" for="user">Address</p>
-<div class="form-outline">
-  <input type="text" id="body"  name="address"  class="form-control validate" />
-  <label class="form-label " for="body">Address</label>
-</div>
 
-
+  <input placeholder="Address" type="text" id="body"  name="address"  class="form-control validate" />
 
 <br />
 
@@ -73,7 +69,7 @@ style="background-image: url('https://wallpapercave.com/wp/X49EwD0.jpg');
 </br>
 <div class="d-grid gap-2 col-6 mx-auto">
 
-<input class="btn btn-success btn-rounded" type="submit" value="save product" />>
+<input class="btn btn-success btn-rounded" type="submit" value="save product" />
 </div>
 
 {% comment %} <button type="button" class="btn btn-success btn-rounded">Success</button> {% endcomment %}

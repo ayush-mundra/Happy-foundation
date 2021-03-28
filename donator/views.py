@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Product
+from django.contrib  import auth
 import accounts
 
 
@@ -52,5 +53,7 @@ def delete(request):
         user = get_object_or_404(User, pk=request.user.pk)
         user.delete()
         #product.save()
+        auth.logout(request)
+    
         return render(request,'donatorpages/delete.html')
 

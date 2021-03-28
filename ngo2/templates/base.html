@@ -54,7 +54,7 @@
 
           <div class="dropdown">
   <button
-    class="btn btn-primary dropdown-toggle"
+    class="btn btn-primary btn-lg dropdown-toggle"
     type="button"
     id="dropdownMenuButton"
     data-mdb-toggle="dropdown"
@@ -63,11 +63,9 @@
   <i class="fas fa-eye"></i>  Show details
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a href="{% url 'displayItem' %}"><button type="button" class="btn btn-success btn-sm"><i class="far fa-eye"></i>  Show_ALL_Items</button></a>
-       </li>
-    <li><a href="{% url 'homes' %}"><button type="button" class="btn btn-info btn-sm"><i class="fas fa-eye"></i>  Show_NGO</button></a>
-</li>
-
+    <li><a href="{% url 'homes' %}"><button type="button" class="btn btn-info btn"><i class="fas fa-eye"></i>  Show_NGO</button></a></li>
+    <li><a href="{% url 'displayItem' %}"><button type="button" class="btn btn-success btn"><i class="far fa-eye"></i>  Show_ALL_Items</button></a></li>
+    <li><a href="{% url 'displayrequest' %}"><button type="button" class="btn btn-warning btn"><i class="fas fa-eye"></i>  Show_REQUESTS</button></a></li>       
   </ul>
 </div>
 
@@ -76,22 +74,22 @@
             {% csrf_token %}
             <input type="hidden" />
             </form>
-        <a type="button" class="btn btn-success btn-sm" href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
+        <a type="button" class="btn btn-success btn" href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
         <form id="Request" method="POST" action="{% url 'needrequest' %}">
           {% csrf_token %}
           <input type="hidden" />
         </form>
 
         
-        <a href="{% url 'create' %}"><button type="button" class="btn btn-info btn-sm"><i class="fas fa-hand-holding-usd"></i>Donate</button></a>
+        <a href="{% url 'create' %}"><button type="button" class="btn btn-info btn"><i class="fas fa-hand-holding-usd"></i>Donate</button></a>
                  {% comment %} <a href="{% url 'details' %}"><button type="button" class="btn btn-info">showItem</button></a> {% endcomment %}
 
         {% comment %} <a  type="button" class="btn btn-info" href="{% url 'homes' %}">show ngo</a> {% endcomment %}
-        <a  type="button" class="btn btn-secondary btn-sm" href="{% url 'help' %}"><i class="fas fa-hotel"></i> Ngo_create</a>
+        <a  type="button" class="btn btn-secondary btn" href="{% url 'help' %}"><i class="fas fa-hotel"></i> Ngo_create</a>
         {% comment %} <a  type="button" class="btn btn-primary" href="{% url 'create' %}">Help_Me</a> {% endcomment %}
         <div class="dropdown">
   <button
-    class="btn btn-danger dropdown-toggle"
+    class="btn btn-danger btn-lg dropdown-toggle"
     type="button"
     id="dropdownMenuButton"
     data-mdb-toggle="dropdown"
@@ -100,8 +98,8 @@
     <i class="fas fa-unlock"></i>  Auth
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a  type="button" class="btn btn-dark btn-sm" href="javascript:{document.getElementById('logout').submit()}"> <i class="fas fa-lock"></i>  Logout</a></li>
-    <li><a type="button" class="btn btn-danger btn-sm" href="javascript:{document.getElementById('delete').submit()}"><i class="fas fa-trash"></i>  delete_account</a></li>
+    <li><a  type="button" class="btn btn-dark btn" href="javascript:{document.getElementById('logout').submit()}"> <i class="fas fa-lock"></i>  Logout</a></li>
+    <li><a type="button" class="btn btn-danger btn" href="javascript:{document.getElementById('delete').submit()}"><i class="fas fa-trash"></i>  delete_account</a></li>
   </ul>
 </div>
         <a href="{% url 'createprofile' %}"> <i class="fas fa-user-tie fa-2x "></i></a>

@@ -12,34 +12,33 @@
 
 {% endif %}
 
-<div class="container-sm">
+
    <body class="text-center">
-   
+   <div class="container">
     <form method="POST" action="{% url 'signup' %}" class="form-signin">
     {% csrf_token %}
   <img class="mb-8" src="http://www.pngplay.com/wp-content/uploads/1/Sign-Up-PNG-Free-Image.png" alt="" width="400" height="200">
   <h1 class="h3 mb-3 font-weight-normal text-left text-primary">Please sign Up</h1>
-
+   <div class="container">
 <label class="form-label" for="user">Username</label>
-<div class="form-outline">
-  <input type="text" id="user"  name="username"  class="form-control" />
-  <label class="form-label" for="user">Username</label>
-</div>
-<label class="form-label" for="pass">Password</label>
-<div class="form-outline">
-  <input type="password" id="user"  name="password1"  class="form-control" />
-  <label class="form-label" for="pass">Password</label>
-</div>
-<label class="form-label" for="cpass">Confirm-Password</label>
-<div class="form-outline">
-  <input type="password" id="user"  name="password2"  class="form-control" />
-  <label class="form-label" for="cpass">Confirm-Password</label>
-</div>
 
+  <input placeholder="Username" type="text" id="user"  name="username"  class="form-control" />
+
+
+<label class="form-label" for="pass">Password</label>
+
+  <input placeholder="Password" type="password" id="user"  name="password1"  class="form-control" />
+
+
+<label class="form-label" for="cpass">Confirm-Password</label>
+
+  <input placeholder="Confirm-Password" type="password" id="user"  name="password2"  class="form-control" />
+ 
+ </br>
   <!-- Submit button -->
    <input  class="btn btn-success btn-lg" type="submit" value="Sign UP"></input>
   {% comment %} <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button> {% endcomment %}
-
+</div>
 </form>
 </div>
 </div>

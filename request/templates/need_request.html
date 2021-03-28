@@ -14,23 +14,25 @@
 <h1 class="text-info fs-2 text-center">Create request</h1>
 
 <body class="text-center">
-    
+    <div class="container-sm">
 <form method="POST" action="{% url 'needrequest' %}" enctype="multipart/form-data">
 {% csrf_token %}
   <br><br>
-  <label class="sr-only text-primary fs-2">Name</label>
-  <input type="text" name="Fname" class="form-control" placeholder="Complete Name" required autofocus>
-  <br><br>
-  <label class="sr-only text-primary fs-2">Title</label>
-  <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+  <label class="sr-only text-primary fs-2">Your need</label>
+  <input type="text" name="title" class="form-control" placeholder="Your need" required autofocus>
   <br><br>
   <label class="sr-only text-primary fs-2">Body</label>
-  <input type="text" name="BOSY" class="form-control" placeholder="Username" required autofocus>
+  <input type="text" name="body" class="form-control" placeholder="Body" required autofocus>
+  <br><br>
+  <label class="sr-only text-primary fs-2">Your name</label>
+  <input type="text" name="name" class="form-control" placeholder="Your name" required autofocus>
   <br><br>
   <label class="sr-only text-primary fs-2">Phone Number</label>
-  <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
- <br><br>
-  <input  class="btn btn-primary" type="submit" value="Push request"></input> 
+  <input type="text" name="phone" class="form-control" placeholder="Phone Number" required autofocus> 
+ <br>
+
+  <input  class="btn btn-success btn-rounded" type="submit" value="Add request"></input> 
+ </div>
 </form>
 
 {% endblock %}

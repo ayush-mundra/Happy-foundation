@@ -80,31 +80,39 @@
      {% csrf_token %}
    <img class="mb-4" src="https://png.pngtree.com/templates/md/20180509/md_5af2f70edce32.jpg" alt="" width="200" height="200">
    <h1 class="h3 mb-3 font-weight-normal text-left text-info">Create Your Ngo Profile</h1>
-   <br><br>
-   <label class="sr-only text-light fs-2">Ngo name</label>
+   <br>
+   <div class="container border border-dark">
+         <section class="mx-auto my-5" style="max-width: 31rem;">
+   <label class=" text-dark fs-4">Ngo name</label>
    <input type="text" name="Fname" class="form-control" placeholder="Complete Name" required autofocus>
-   <br><br>
-   <div class ="float-left">
-   <label class="sr-only text-light fs-2">Add certificate</label> 
+   <br>
+   <label class="text-dark fs-4">Phone Number</label>
+   <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
+   </br>
+   <label for="State" class="text-dark fs-4">State</label><span style="color: red !important; display: inline; float: none;">*</span>  
+  <div class="input-field col s12">   
+  
+ <select  onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" class="form-control" required></select>
+ <br>
+  <label for="State" class="text-dark fs-4">City</label><span style="color: red !important; display: inline; float: none;">*</span>  
+ <select id ="state" class="form-control" name ="city" placeholder ="city"required></select>
+ <script language="javascript">print_state("sts");</script>   
+   </div>
+   <br>
+   
+   <label class=" text-dark fs-4">Add certificate</label> 
+   <div class="d-flex justify-content-start">
     <div class="file-field input-field">
       <div class="btn btn-outline-info" >
-        <span>certificate  </span>
+        <span>Certificate</span>
         <input type="file" name="certificates" >
     </div>
   </div>
-   <br><br>
-   <label class="sr-only text-light fs-2">Phone Number</label>
-   <input type="text" name="Phone" class="form-control" placeholder="Phone Number" required autofocus> 
-   <label for="State" class="text-light fs-2">State</label><span style="color: red !important; display: inline; float: none;">*</span>  
-  <div class="input-field col s12">   
- <select  onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" class="form-control" required></select>
- <br><br>
- <select id ="state" class="form-control" name ="city"required></select>
- <script language="javascript">print_state("sts");</script>   
-   </div>
-   <br><br>
-  <input  class="btn btn-success" type="submit" value="Create Ngo"></input> 
-  
+  </div>
+  </br>
+  <input  class="btn btn-success btn-rounded" type="submit" value="Create Ngo"></input> 
+  </section>
+ </div>
  </form>
  </div>
   </body>

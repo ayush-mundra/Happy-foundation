@@ -1,24 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p class="fs-1"> make sure you have made you profile first by clicking on the avator icon in nav bar </p>
+</br>
+<div class="card text-center border border-dark">
+  <div class="card-body">
+    <h5 class="card-title text-danger"> make sure you have made you profile first by clicking on the avator icon in nav bar or below one </h5>
+  <a href="{% url 'createprofile' %}"> <i class="fas fa-user-tie fa-2x text-info"></i></a>
+  </div>
+</div>
 {% for r in profile_set.all %}
     {% for ngo in ngos.all %} 
         {% if r.city == ngo.city %} 
+        <div class="container">
+         <section class="mx-auto my-5" style="max-width: 31rem;">
+
             <div class="card text-center border border-primary shadow-0 mb-3" style="width: 38rem">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    </br>
                     <img src={{ ngo.certificates.url }} class="img-fluid" />
                     <a href="#!">
                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                     </a>
                 </div>
                 <div>
+                </br>
                     <h5 class="card-title">Ngo Name :{{ ngo.Name}} </h5>
                     <p class="card-text">Ngo City :{{ ngo.city }}</p>
                     <p class="card-text">Ngo State : {{ ngo.state }}</p>
                     <p class="card-text">Ngo phone: {{ ngo.Phone }}</p>
                     <a href="#" > <button class="btn btn-primary">Donate</button> </a>
+                 </br>
                 </div>
+            </div> 
+            </section>
             </div> 
         {% endif %} 
     {% endfor %}
