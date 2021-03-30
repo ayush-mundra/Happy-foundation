@@ -5,5 +5,6 @@ urlpatterns = [
     path('delete1', views.delete1, name="delete1"),
     path('edit/<int:id>',views.edit,name='edit'),
     path('displayrequest',views.displayrequest,name='displayrequest'),
-    # path('delete1', views.delete1, name="delete1"),
+    path('<int:request_id>/info',views.info1,name='info1'),
+    path('<int:request_id>/delete',views.delete,name='delete'),
 ]

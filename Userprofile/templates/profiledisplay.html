@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% if error %}
+<p class="text-center text-danger fs-1">
+ {{error}}
+</p>
+<br />
+
+{% endif %}
+<div class="row d-flex justify-content-center">
+
+{% block content %}
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem; height:50px">
+     
+<div class="card text-center border border-primary shadow-0 "style="width: 18rem">
+  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    
+    <a href="#!">
+      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+    </a>
+ </div>
+<div class="card-body">
+    <p  class="text-danger">Profile id:{{request.id}}</p>
+    <h4 class="card-title font-weight-bold">Your name: {{ request.Name}}</h4>
+    <hr>
+    <p class="card-text">Your State : {{ request.state }}</p> 
+    <p class="card-text">Your city: {{ request.city }}</p>
+    <p class="card-text">Phone Number: {{ request.Phone}}</p>      
+</div>
+  </section>
+  </div>
+</div>
+</div>
+{% endblock %}

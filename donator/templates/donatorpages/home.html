@@ -2,9 +2,15 @@
 {% extends 'index.html' %}
 
 {%block content %}
-<p class="text-danger fs-1">
- {{error}}
+{% if error %}
+</br>
+  <div class="container border border-danger">
+   <p class="fs-1 text-danger"> {{error}}
+  </div>
 </p>
+    <br />
+
+{% endif %}
 <!-- Carousel wrapper -->
 <div
   id="carouselBasicExample"

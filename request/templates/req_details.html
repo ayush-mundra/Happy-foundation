@@ -1,4 +1,11 @@
 {% extends 'index.html' %}
+{% if error %}
+<p class="text-center text-danger fs-1">
+ {{error}}
+</p>
+<br />
+
+{% endif %}
 <div class="row d-flex justify-content-center">
 
 {% block content %}
@@ -14,12 +21,13 @@
   </div>
 
   <div class="card-body">
-    Request id:{{request.id}}
+    <p  class="text-danger">Request id:{{request.id}}</p>
    <h5 class="card-title">Name Of requester :  {{ request.name}} </h5>
                   <p class="card-text">Mobile no. : {{ request.phone }}</p>
                   <p class="card-text">Request title : {{  request.title  }}</p>
                   <p class="card-text">Request body : {{ request.body }}</p>
-          
+                {% comment %} edit {% endcomment %}
+                {% comment %} <a href="{% url 'edit' %}"><button type="button" class="btn btn-info btn"><i class="fas fa-eye"></i> Edit Request</button></a> {% endcomment %}
                   <a type="button" class="btn btn-danger" href="javascript:{document.getElementById('delete1').submit()}">DelRequest</a>
                   <form id="delete1" method="POST" action="{% url 'delete1' %}">
                   {% csrf_token %}

@@ -24,7 +24,9 @@ def createprofile(request):
             profile.city = request.POST['city']
             profile.profile_owner  = request.user
             profile.save()
-            return redirect('home')
+            return render(request, 'profiledisplay.html',{"request": profile})
+                
+            return render(request, 'Pform.html',{'error':'create your profile first'})
 
         return render(request, 'Pform.html',{f'error':'All fields are required {}'})        
 
@@ -36,7 +38,6 @@ def edit(request, id):
     if request.method=="POST":
         if request.POST['Fname'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
             profile.Name = request.POST['Fname']
-            # profile.Username = request.POST['username']
             profile.Phone = request.POST['Phone']
             profile.state = request.POST['state']
             profile.city = request.POST['city']
@@ -46,3 +47,8 @@ def edit(request, id):
             
         return render(request, "index9.html", {"error":"fill all the inputs", "id": id })		
     return render(request, "index9.html",{"id":id})
+
+
+def info1(request, request_id):
+    request1 = get_object_or_404(Profile,pk= request_id)
+    return render(request,'info2.html',{'request':request1})
