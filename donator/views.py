@@ -57,3 +57,5 @@ def delete(request):
     
         return render(request,'donatorpages/delete.html')
 
+    
+

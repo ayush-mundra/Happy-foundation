@@ -12,12 +12,13 @@
 
 {% endif %}
 
-
+<div class="container">
+<section class="mx-auto my-4" style="max-width: 31rem;">
    <body class="text-center">
    <div class="container">
     <form method="POST" action="{% url 'signup' %}" class="form-signin">
     {% csrf_token %}
-  <img class="mb-8" src="http://www.pngplay.com/wp-content/uploads/1/Sign-Up-PNG-Free-Image.png" alt="" width="400" height="200">
+  <img class="mb-8" src="http://www.pngplay.com/wp-content/uploads/1/Sign-Up-PNG-Free-Image.png" alt="" width="300" height="200">
   <h1 class="h3 mb-3 font-weight-normal text-left text-primary">Please sign Up</h1>
    <div class="container">
 <label class="form-label" for="user">Username</label>
@@ -43,6 +44,8 @@
 </div>
 </div>
  </body>
+ </section>
+ </div>
 {% endblock %}
 
  

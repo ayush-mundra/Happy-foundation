@@ -41,12 +41,21 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-       <a href="{% url 'home' %}" class="navbar-brand" >
+    
+       {% if user.is_authenticated %}
+          {% csrf_token %}  
+       <a href="{% url 'Donatorhome' %}" class="navbar-brand" >
         <img src = "https://www.flaticon.com/premium-icon/icons/svg/3038/3038144.svg" height="40" width="40" class="d-inline-block align-top">
-        Help Us <i class="flag flag-india fa-sm"></i>
+        Help Us  <i class="flag flag-india fa-sm"></i>
         </a>
       </div> 
-      
+      {% else %}
+       <a href="{% url 'home' %}" class="navbar-brand" >
+        <img src = "https://www.flaticon.com/premium-icon/icons/svg/3038/3038144.svg" height="40" width="40" class="d-inline-block align-top">
+        Help Us  <i class="flag flag-india fa-sm"></i>
+        </a>
+      </div> 
+      {% endif %}
         {% comment %} so here we are making logout visible so now if the user want to logout we cannot make a GET request it has to be post so we make a form {% endcomment %}
       <div class="col-6 d-flex justify-content-end align-items-center">
         {% if user.is_authenticated %}
