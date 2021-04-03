@@ -52,9 +52,7 @@ def delete(request):
     if request.method == 'POST':
         user = get_object_or_404(User, pk=request.user.pk)
         user.delete()
-        #product.save()
         auth.logout(request)
-    
         return render(request,'donatorpages/delete.html')
 
     
