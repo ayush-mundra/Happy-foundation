@@ -8,6 +8,8 @@ urlpatterns = [
   path('homes',views.homes, name='homes'),
   path('displayItem',views.displayItem, name='displayItem'),
   path('help',views.help, name='help'),
+  path('<int:ngo_id>/info2',views.info2,name='info2'),
+  path('<int:ngo_id>',views.details1,name='details1'),
  
     ]
 

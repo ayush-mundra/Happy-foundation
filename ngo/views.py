@@ -60,17 +60,25 @@ def help(request):
             product = Ngoprofile()
             product.Name = request.POST['Fname']
             product.certificates = request.FILES['certificates']
-            # product.Username = request.POST['username']
             product.Phone = request.POST['Phone']
             product.state = request.POST['state']
             product.city = request.POST['city']
             product.ngo_creator=request.user
             product.save()
-            return redirect("home")
+            return redirect('/ngo/'+ str(product.id)+'/info2')
    
         return render(request, 'ngopages/help.html',{f'error':'All fields are required {}'})
     else:
         return render(request, 'ngopages/help.html')
+
+def info2(request, ngo_id):
+    ngo = get_object_or_404( Ngoprofile, pk=ngo_id)
+    return render(request,'ngopages/info2.html',{'ngo':ngo})
+    
+    
+def details1(request, ngo_id):
+    ngo = get_object_or_404( Ngoprofile, pk=ngo_id)
+    return render(request,'ngopages/aboutngo.html',{'ngo':ngo})
    
 # 2405:201:4:90c2:8ca5:e316:c8c1:c901
 # http://127.0.0.1:8000/

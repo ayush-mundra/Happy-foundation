@@ -6,9 +6,7 @@ from Userprofile import views
 urlpatterns = [
    path('createprofile',views.createprofile,name='createprofile'),
    path('edit1/<int:id>',views.edit,name='edit1'),
-   
- 
-   # <int:product_id>
+   path('<int:request_id>/info',views.info1,name='info1'),
    
   
 ]

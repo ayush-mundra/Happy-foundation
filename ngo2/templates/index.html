@@ -29,7 +29,6 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
 ></script>
- 
 
   </head>
   <body>
@@ -41,12 +40,21 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-       <a href="{% url 'home' %}" class="navbar-brand" >
+    
+       {% if user.is_authenticated %}
+          {% csrf_token %}  
+       <a href="{% url 'Donatorhome' %}" class="navbar-brand" >
         <img src = "https://www.flaticon.com/premium-icon/icons/svg/3038/3038144.svg" height="40" width="40" class="d-inline-block align-top">
-        Help Us <i class="flag flag-india fa-sm"></i>
+        Help Us  <i class="flag flag-india fa-sm"></i>
         </a>
       </div> 
-      
+      {% else %}
+       <a href="{% url 'home' %}" class="navbar-brand" >
+        <img src = "https://www.flaticon.com/premium-icon/icons/svg/3038/3038144.svg" height="40" width="40" class="d-inline-block align-top">
+        Help Us  <i class="flag flag-india fa-sm"></i>
+        </a>
+      </div> 
+      {% endif %}
         {% comment %} so here we are making logout visible so now if the user want to logout we cannot make a GET request it has to be post so we make a form {% endcomment %}
       <div class="col-6 d-flex justify-content-end align-items-center">
         {% if user.is_authenticated %}
@@ -74,14 +82,13 @@
             {% csrf_token %}
             <input type="hidden" />
             </form>
-        <a type="button" class="btn btn-success btn" href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
+        <a type="button" class="btn btn-success btn " href="javascript:{document.getElementById('Request').submit()}"><i class="fas fa-suitcase"></i>Request</a>
         <form id="Request" method="POST" action="{% url 'needrequest' %}">
           {% csrf_token %}
           <input type="hidden" />
         </form>
 
-        
-        <a href="{% url 'create' %}"><button type="button" class="btn btn-info btn"><i class="fas fa-hand-holding-usd"></i>Donate</button></a>
+        <a href="{% url 'create' %}" type="button" class="btn btn-info btn"><i class="fas fa-hand-holding-usd"></i>Donate</a>
                  {% comment %} <a href="{% url 'details' %}"><button type="button" class="btn btn-info">showItem</button></a> {% endcomment %}
 
         {% comment %} <a  type="button" class="btn btn-info" href="{% url 'homes' %}">show ngo</a> {% endcomment %}
@@ -109,15 +116,13 @@
         </form>
         {% else %}
         {% comment %} attendaance  {% endcomment %}
-        <a  type="button" class="btn btn-success btn-lg" href="{% url 'signup' %}"><i class="fas fa-lock"></i>  Sign up</a>
+        <a  type="button" class="btn btn-success btn-lg" href="{% url 'signup' %}"><i class="fas fa-lock"></i> Sign up</a>
         <a  type="button" class="btn btn-primary btn-lg" href="{% url 'login' %}"> <i class="fas fa-key"></i>  Login</a>
-        
         {% endif %}
       </div>
     </div>
 
   </div>
-
 
  {% block content %}
  
