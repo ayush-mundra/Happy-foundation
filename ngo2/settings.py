@@ -26,7 +26,7 @@ SECRET_KEY = '#k1$&0vwh5%q_-^3z=n6@=$e&@c(i$&y-6u2(#nfdew&*cl8@u'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','ngo-final.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','ngo-final.herokuapp.com']
 
 
 # Application definition
