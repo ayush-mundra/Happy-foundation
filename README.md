@@ -1,4 +1,10 @@
 # Happy-foundation
+
+
+![image](https://user-images.githubusercontent.com/63422678/174352357-904658b9-93f5-41d2-a99e-786675188f78.png)
+
+![image](https://user-images.githubusercontent.com/63422678/174352397-b5dc52bc-5ae1-4a14-b4ba-e9234c77050f.png)
+
 All the details of the project is explained in the here:
 
 <a href="https://github.com/JAgrit20/DonateWithUs/blob/master/DBMS_REPORT_NGO_WEBSITE.pdf"> DBMS Report</a>
