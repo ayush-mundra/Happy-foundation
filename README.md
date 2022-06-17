@@ -1,7 +1,8 @@
 # Happy-foundation
 All the details of the project is explained in the Presentations here:
 <a href="https://github.com/JAgrit20/DonateWithUs/blob/master/DBMS_REPORT_NGO_WEBSITE.pdf" >DBMS Structure</a>
-<a href="https://github.com/JAgrit20/DonateWithUs/blob/master/PL_PRESENTATION.pptx">Project Working </a>
+
+<a href="https://github.com/JAgrit20/DonateWithUs/blob/master/PL_PRESENTATION.pptx">Project Working PPT</a>
 
 
 ![image](https://user-images.githubusercontent.com/63422678/174351201-88735a2a-e746-4440-806f-314d32b11d01.png)
@@ -12,4 +13,4 @@ All the details of the project is explained in the Presentations here:
 ![image](https://user-images.githubusercontent.com/63422678/174351579-29a04c31-acb0-4f60-baf8-de8a06d706ac.png)
 
 
-v
+
