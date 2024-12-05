@@ -52,3 +52,5 @@ def edit(request, id):
 def info1(request, request_id):
     request1 = get_object_or_404(Profile,pk= request_id)
     return render(request,'info2.html',{'request':request1})
+
+#adding comment to check for PR
