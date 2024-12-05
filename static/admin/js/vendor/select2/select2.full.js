@@ -71,7 +71,7 @@ var requirejs, require, define;
 
         //Adjust any relative paths.
         if (name && name.charAt(0) === ".") {
-            //If have a base name, try to normalize against it,
+            //If have a index name, try to normalize against it,
             //otherwise, assume it is a top-level require that will
             //be relative to baseUrl in the end.
             if (baseName) {
@@ -1307,7 +1307,7 @@ S2.define('select2/keys',[
   return KEYS;
 });
 
-S2.define('select2/selection/base',[
+S2.define('select2/selection/index',[
   'jquery',
   '../utils',
   '../keys'
@@ -1468,7 +1468,7 @@ S2.define('select2/selection/base',[
 
 S2.define('select2/selection/single',[
   'jquery',
-  './base',
+  './index',
   '../utils',
   '../keys'
 ], function ($, BaseSelection, Utils, KEYS) {
@@ -1568,7 +1568,7 @@ S2.define('select2/selection/single',[
 
 S2.define('select2/selection/multiple',[
   'jquery',
-  './base',
+  './index',
   '../utils'
 ], function ($, BaseSelection, Utils) {
   function MultipleSelection ($element, options) {
@@ -2978,7 +2978,7 @@ S2.define('select2/diacritics',[
   return diacritics;
 });
 
-S2.define('select2/data/base',[
+S2.define('select2/data/index',[
   '../utils'
 ], function (Utils) {
   function BaseAdapter ($element, options) {
@@ -3020,7 +3020,7 @@ S2.define('select2/data/base',[
 });
 
 S2.define('select2/data/select',[
-  './base',
+  './index',
   '../utils',
   'jquery'
 ], function (BaseAdapter, Utils, $) {

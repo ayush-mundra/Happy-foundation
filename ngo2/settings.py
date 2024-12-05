@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#k1$&0vwh5%q_-^3z=n6@=$e&@c(i$&y-6u2(#nfdew&*cl8@u'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['159.89.175.152','127.0.0.1','2405:205:150b:5954:15cf:2a3:3b90:6eff']
+DEBUG = False
+
+ALLOWED_HOSTS = ['127.0.0.1','ngo-final.herokuapp.com']
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'ngo2.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ngo3',
+        'NAME': 'ngo_final1',
         'USER':'postgres',
         'PASSWORD':'1234',
         'HOST':'localhost',

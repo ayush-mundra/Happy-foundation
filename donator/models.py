@@ -4,14 +4,16 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Product(models.Model):
    title = models.CharField(max_length=200)
-   Name = models.CharField(max_length=200,default='SOME STRING')
-   Phone = models.CharField(max_length=20,default='SOME STRING')
-   address = models.CharField(max_length=200,default='SOME STRING')
-   pub_date = models.DateTimeField() 
+   Name = models.CharField(max_length=200)
+   Phone = models.CharField(max_length=20)
+   address = models.CharField(max_length=200)
+   pub_date = models.DateTimeField()         
    body = models.TextField()
    itemImage = models.ImageField(upload_to='images/')
-   Id = models.ImageField(upload_to='images/',default='SOME STRING')
-   owner = models.ForeignKey(User, on_delete=models.CASCADE)
+   govt_id = models.ImageField(upload_to='images/')
+   product_owner = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+
+
 
 def  __str__(self):
     return self.title 

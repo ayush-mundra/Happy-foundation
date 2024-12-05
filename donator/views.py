@@ -3,8 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Product
+from django.contrib  import auth
 import accounts
-# Create your views here.
+
+
+def allproducts(request):
+    products = Product.objects
+    return render(request, 'donatorpages/allproduct.html',{'product':products})
 def home(request):
     return render(request,'donatorpages/home.html')
 def profile(request):
@@ -22,40 +27,33 @@ def create(request):
             product.body = request.POST['body']
             product.Phone = request.POST['phone']
             product.address = request.POST['address']
-            product.Id = request.FILES['id']
+            product.govt_id = request.FILES['id']
             product.itemImage = request.FILES['itemimage']
             product.pub_date = timezone.datetime.now()
-            product.owner = request.user
+            product.product_owner = request.user
             product.save()
             return redirect('/donator/'+ str(product.id))
 
         return render(request, 'donatorpages/create.html',{'error':'All fields are required'})
     else:
         return render(request, 'donatorpages/create.html')
+
 def details(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
     return render(request,'donatorpages/detail.html',{'product':product})
     
 def info(request,product_id):
     product = get_object_or_404(Product,pk=product_id)
-
     return render(request,'donatorpages/info.html',{'product':product})
-    
-@login_required(login_url="/accounts/signup")
-def upvote(request, product_id):
-    if request.method == 'POST':
-        product = get_object_or_404(Product, pk=product_id)
-        product.save()
-        return redirect('/products/' + str(product.id))
+
    
-
-
-
 @login_required(login_url="/accounts/signup")
 def delete(request):
     if request.method == 'POST':
-        # product = get_object_or_404(Product, pk=product_id)
-        #User.request.delete(product_id)
-        #product.save()
+        user = get_object_or_404(User, pk=request.user.pk)
+        user.delete()
+        auth.logout(request)
         return render(request,'donatorpages/delete.html')
+
+    
 

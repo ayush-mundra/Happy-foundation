@@ -1,0 +1,25 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 21rem;">
+      
+    <div class="card testimonial-card mt-2 mb-3 bg-dark text-info" >
+      <div class="card-up aqua-gradient" style=".aqua-gradient {
+  background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+}"></div>
+      <div class="card-body text-center">
+        <h4 class="card-title font-weight-bold">Your name: {{ request.Name}}</h4>
+        <hr>
+        <p class="card-text">Your State : {{ request.state }}</p> 
+        <p class="card-text">Your city: {{ request.city }}</p>
+        <p class="card-text">Phone Number: {{ request.Phone}}</p>
+      </div>
+    </div>
+    
+  </section>
+</div>
+<!--Section: Block Content-->
+{% endblock %}

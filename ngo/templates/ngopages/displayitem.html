@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block content %}
+</br>
+<div class="card text-center border border-secondary">
+</br>
+  <div class="card-body">
+    <h5 class="card-title text-danger"> make sure you have made you profile first by clicking on the avator icon in nav bar or below one </h5>
+  <a href="{% url 'createprofile' %}"> <i class="fas fa-user-tie fa-2x text-info"></i></a>
+  </div>
+</div>
+<div class="container">
+  <section class="mx-auto my-5" style="max-width: 31rem;">
+  {% for product in products.all %}
+  <br/>
+
+  <div class="card text-center border border-primary shadow-0 mb-3" style="width: 38rem">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    </br>
+      <img src={{ product.itemImage.url }} class="img-fluid" />
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+  </div>
+  <div class="card-body">
+      <p class="card-text"> Title: {{product.title }}</p>
+      <p class="card-text"> Body : {{product.body }}</p>
+      <h5 class="card-title">Name: {{  product.Name}}</h5>
+      <p class="card-text">Phone : {{ product.Phone}}</p>
+      <p class="card-text">Address :{{  product.address}}</p>
+      <p class="card-text">Creation date :{{  product.pub_date}}</p>
+      <button type="button" class="btn btn-outline-success">I need this</button>
+  </div>
+  </div>
+    </br>
+     
+
+  {% endfor %}
+  </br>
+  </section> 
+    </br>
+</div>
+
+{% endblock %}

@@ -3,11 +3,17 @@ from .models import Profile
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+import donator
 
 # name = request.POST['Fname'] and userimage = request.FILES.get('userimg'
 # Create your views here.
 #@login_required(login_url="/accounts/signup")
 def createprofile(request):
+    profiles=Profile.objects.all()
+    for i in profiles:
+        if(i.profile_owner==request.user):
+            return render(request, 'donatorpages/home.html',{'error':'your profile is already created'})
+    
     if request.method == 'POST':
         if request.POST['Fname'] and request.POST['username'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
             profile = Profile()
@@ -16,22 +22,35 @@ def createprofile(request):
             profile.Phone = request.POST['Phone']
             profile.state = request.POST['state']
             profile.city = request.POST['city']
+            profile.profile_owner  = request.user
             profile.save()
-            return redirect('edit')
+            return render(request, 'profiledisplay.html',{"request": profile})
+                
+            return render(request, 'Pform.html',{'error':'create your profile first'})
 
-#return redirect('/profile/edit')
-        return render(request, 'Pform.html',{f'error':'All fields are required {}'})
-    else:
-        return render(request, 'Pform.html')
-   
-    return render(request,'createprofile.html')
-def edit(request,user_id):
-    user= get_object_or_404(Profile,pk=user_id)
-    return render(request,'edit.html',{'Profile':user})
+        return render(request, 'Pform.html',{f'error':'All fields are required {}'})        
 
-    # def details(request,product_id):
-    #     product = get_object_or_404(Product,pk=product_id)
+    return render(request, 'Pform.html')
+    
+    
+def edit(request, id):
+    profile= get_object_or_404(Profile,pk=id)
+    if request.method=="POST":
+        if request.POST['Fname'] and request.POST['Phone'] and request.POST['state'] and request.POST['city'] :
+            profile.Name = request.POST['Fname']
+            profile.Phone = request.POST['Phone']
+            profile.state = request.POST['state']
+            profile.city = request.POST['city']
+            profile.profile_owner = request.user
+            profile.save()
+            return render(request, "index10.html")
+            
+        return render(request, "index9.html", {"error":"fill all the inputs", "id": id })		
+    return render(request, "index9.html",{"id":id})
 
-    # return render(request,'donatorpages/detail.html',{'product':product})
+
+def info1(request, request_id):
+    request1 = get_object_or_404(Profile,pk= request_id)
+    return render(request,'info2.html',{'request':request1})
 
 #adding comment to check for PR
